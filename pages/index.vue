@@ -1,5 +1,9 @@
 <template>
-  <Header></Header>
+  <div>
+    <Header></Header>
+    <BodyHomeBanner />
+  </div>
+
   <!-- <Tutorial/> -->
 </template>
 
