@@ -7,7 +7,6 @@
 <script>
 export default {
     props: {
-        label: null,
         url: null
     }
 }
