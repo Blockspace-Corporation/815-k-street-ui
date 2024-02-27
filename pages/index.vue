@@ -9,5 +9,6 @@ import UpgradeToLatestTaste from '../components/Sections/UpgradeToLatestTaste.vu
     <SectionsPopularCollection />
     <SectionsGallery />
     <SectionsStatistics />
+    <SectionsSimpleAndDeliciousFood />
   </div>
 </template>
