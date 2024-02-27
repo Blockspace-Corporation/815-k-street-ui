@@ -1,5 +1,5 @@
 <template>
-    <BodyPaperField class="flex gap-6 items-center flex-row-reverse">
+    <BodyPaperField class="flex gap-6 items-center flex-row-reverse bg-cover bg-center" :style="'background-image:url(banners/white-bg.webp)'">
         <div class="w-1/2">
             <h2 class="text-2xl font-bold">What Makes Our Menus Special ?</h2>
             <br />
