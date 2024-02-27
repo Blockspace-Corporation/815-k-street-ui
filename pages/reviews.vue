@@ -5,5 +5,6 @@
         <BodyPaperField>
             <h1>Reviews</h1>
         </BodyPaperField>
+        <SectionsGallery />
     </div>
 </template>
