@@ -18,7 +18,7 @@
                 </BodyImageListItem>
             </div>
             <div class="w-3/12 flex-1 flex items-center justify-center p-6">
-                <img src="images/middle-img.png" class="h-auto">
+                <img src="images/middle-img.webp" class="h-auto">
             </div>
             <div class="flex flex-col gap-4 w-4/12">
                 <BodyImageListItem icon="icons/c-chinese.png" title="Chinese Cuisines">

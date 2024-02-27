@@ -72,6 +72,9 @@ export default {
           height: {
             'almost': '65vh',
           },
+          minHeight: {
+            'almost': '65vh',
+          },
         }
       }
     }

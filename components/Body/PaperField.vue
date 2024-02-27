@@ -1,6 +1,6 @@
 <template>
     <div
-        class="relative bg-white px-32 py-12 text-grey"
+        class="z-10 relative bg-white px-32 py-12 text-grey"
         :class="{
             'tear-before': tearBefore,
             'tear-after': tearAfter,

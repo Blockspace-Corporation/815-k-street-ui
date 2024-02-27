@@ -1,9 +1,10 @@
 <template>
     <div
-        class="flex p-32 text-white bg-cover bg-center items-center" 
+        class="relative overflow-hidden flex p-32 text-white bg-cover bg-center items-center" 
         :class="{
-            'h-screen': fullHeight,
-            'h-almost': !fullHeight,
+            'min-h-screen': fullHeight,
+            'min-h-almost': !fullHeight,
+            'shadowed': shadowed
         }"
         :style="'background-image:url(' + bg + ')'"
     >
@@ -19,6 +20,22 @@ export default {
             default: false,
             type: Boolean
         },
+        shadowed: {
+            default: false,
+            type: Boolean
+        },
     }
 }
 </script>
+
+<style scoped>
+.shadowed:before {
+    content: "";
+    width: 0px;
+    height: 100%;
+    box-shadow: 1px 0px 75vw 75vw #00000054;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+</style>

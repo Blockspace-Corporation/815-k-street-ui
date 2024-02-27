@@ -1,3 +1,5 @@
+
+import UpgradeToLatestTaste from '../components/Sections/UpgradeToLatestTaste.vue';
 <template>
   <div>
     <BodyImageBanner bg="banners/home-banner.webp" fullHeight>
@@ -5,7 +7,7 @@
         <span>Mega Discount on</span>
         <br />
         <br />
-        <h2 class="text-primary text-6xl font-bold">Tasty Bites<br />Healthy Foods</h2>
+        <SectionTitle>Tasty Bites<br />Healthy Foods</SectionTitle>
         <br />
         <p class="text-2xl">10 - 50% OFF</p>
         <br />
@@ -15,5 +17,7 @@
     <BodyPaperField>
       <SectionsKoreanChineseCuisine />
     </BodyPaperField>
+    <SectionsUpgradeToLatestTaste />
+    <BodyPaperField></BodyPaperField>
   </div>
 </template>
