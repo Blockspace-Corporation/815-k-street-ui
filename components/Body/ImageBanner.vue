@@ -4,7 +4,8 @@
         :class="{
             'min-h-screen': fullHeight,
             'min-h-almost': !fullHeight,
-            'shadowed': shadowed
+            'shadowed': shadowed,
+            'px-4': smallGutter
         }"
         :style="'background-image:url(' + bg + ')'"
     >
@@ -21,6 +22,10 @@ export default {
             type: Boolean
         },
         shadowed: {
+            default: false,
+            type: Boolean
+        },
+        smallGutter: {
             default: false,
             type: Boolean
         },

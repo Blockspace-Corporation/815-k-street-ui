@@ -4,6 +4,7 @@
         :class="{
             'tear-before': tearBefore,
             'tear-after': tearAfter,
+            'px-4': smallGutter
         }"
     >
         <slot></slot>
@@ -20,7 +21,11 @@ export default {
         tearAfter: {
             default: true,
             type: Boolean
-        }
+        },
+        smallGutter: {
+            default: false,
+            type: Boolean
+        },
     }
 }
 </script>

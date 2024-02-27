@@ -17,5 +17,7 @@ import UpgradeToLatestTaste from '../components/Sections/UpgradeToLatestTaste.vu
     <SectionsKoreanChineseCuisine />
     <SectionsUpgradeToLatestTaste />
     <SectionsWhatMakesOurMenuSpecial />
+    <SectionsPopularCollection />
+    <BodyPaperField></BodyPaperField>
   </div>
 </template>
