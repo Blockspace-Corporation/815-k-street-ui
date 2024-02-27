@@ -5,5 +5,6 @@
         <BodyPaperField>
             <h1>Menu</h1>
         </BodyPaperField>
+        <SectionsOurClient/>
     </div>
 </template>

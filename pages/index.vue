@@ -8,5 +8,6 @@ import UpgradeToLatestTaste from '../components/Sections/UpgradeToLatestTaste.vu
     <SectionsWhatMakesOurMenuSpecial />
     <SectionsPopularCollection />
     <SectionsStatistics />
+    <SectionsOurClient />
   </div>
 </template>

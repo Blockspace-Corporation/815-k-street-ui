@@ -5,5 +5,6 @@
         <BodyPaperField>
             <h1>About</h1>
         </BodyPaperField>
+        <SectionsOurClient/>
     </div>
 </template>
