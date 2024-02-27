@@ -64,7 +64,13 @@ export default {
           'link-hover': '#F4B618',
           'secondary': '#C00A27',
           'danger': '#e3342f',
-        }
+          'grey': '#3A3A3A',
+        },
+        height: theme => ({
+          ...theme('heights'),
+          'screen': '100vh',
+          'almost': '65vh'
+        })
       }
     }
   }

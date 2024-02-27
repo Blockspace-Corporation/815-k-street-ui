@@ -3,7 +3,7 @@
         class="img-banner flex p-32 text-white bg-cover bg-center items-center" 
         :class="{
             'h-screen': fullHeight,
-            'h-96': !fullHeight,
+            'h-almost': !fullHeight,
         }"
         :style="'background-image:url(' + bg + ')'"
     >

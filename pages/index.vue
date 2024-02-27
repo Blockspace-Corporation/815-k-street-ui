@@ -12,6 +12,7 @@
         <Button to="menu">View Menu</Button>
       </div>
     </BodyImageBanner>
+    <BodyPaperField></BodyPaperField>
   </div>
 
   <!-- <Tutorial/> -->
