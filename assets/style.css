@@ -12,3 +12,11 @@ html, body {
     left: 0px;
     width: 100%;
 }
+
+.owl-theme .owl-dots .owl-dot span {
+    background-color: #c00a27a6 !important;
+}
+
+.owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
+    background-color: #c00a27 !important;
+}
