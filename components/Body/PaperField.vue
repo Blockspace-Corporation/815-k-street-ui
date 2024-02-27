@@ -37,7 +37,7 @@ export default {
     height: 30px;
     background-color: transparent;
     left: 0px;
-    top: -30px;
+    top: -29px;
     position: absolute;
     display: block;
     background-image: url('/tear-start.webp');
@@ -51,7 +51,7 @@ export default {
     height: 30px;
     background-color: transparent;
     left: 0px;
-    bottom: -30px;
+    bottom: -29px;
     position: absolute;
     display: block;
     background-image: url('/tear-end.webp');
