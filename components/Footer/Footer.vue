@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="bg-cover bg-center" :style="'background-image:url(banners/footer-bg.webp)'">
         <div class="flex px-32 py-16 justify-between text-white">
             <div class="ways-to-contact w-1/2">
                 <img src="~/static/logo.webp" alt="" class="w-48">
