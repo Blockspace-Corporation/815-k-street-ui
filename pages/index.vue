@@ -18,6 +18,6 @@ import UpgradeToLatestTaste from '../components/Sections/UpgradeToLatestTaste.vu
     <SectionsUpgradeToLatestTaste />
     <SectionsWhatMakesOurMenuSpecial />
     <SectionsPopularCollection />
-    <BodyPaperField></BodyPaperField>
+    <SectionsStatistics />
   </div>
 </template>
