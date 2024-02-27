@@ -7,7 +7,9 @@ import UpgradeToLatestTaste from '../components/Sections/UpgradeToLatestTaste.vu
     <SectionsUpgradeToLatestTaste />
     <SectionsWhatMakesOurMenuSpecial />
     <SectionsPopularCollection />
+    <SectionsGallery />
     <SectionsStatistics />
+    <SectionsSimpleAndDeliciousFood />
     <SectionsOurClient />
   </div>
 </template>
