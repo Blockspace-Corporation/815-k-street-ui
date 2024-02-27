@@ -1,7 +1,7 @@
 <template>
-    <a :href="url" class="p-2 bg-transparent text-white hover:text-orange-500 uppercase">
+    <router-link :to="url" class="p-2 bg-transparent text-white hover:text-link-hover uppercase">
         <slot></slot>
-    </a>
+    </router-link>
 </template>
 
 <script>
@@ -11,3 +11,9 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+.nuxt-link-exact-active {
+    color: #FFB700;
+}
+</style>

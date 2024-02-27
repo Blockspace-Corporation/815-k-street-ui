@@ -1,19 +1,19 @@
 <template>
     <ul class="flex gap-2">
         <li>
-            <HeaderMenuLinkItem url="#">Home</HeaderMenuLinkItem>
+            <HeaderMenuLinkItem url="/">Home</HeaderMenuLinkItem>
         </li>
         <li>
-            <HeaderMenuLinkItem url="#">About</HeaderMenuLinkItem>
+            <HeaderMenuLinkItem url="about">About</HeaderMenuLinkItem>
         </li>
         <li>
-            <HeaderMenuLinkItem url="#">Menu</HeaderMenuLinkItem>
+            <HeaderMenuLinkItem url="menu">Menu</HeaderMenuLinkItem>
         </li>
         <li>
-            <HeaderMenuLinkItem url="#">Reviews</HeaderMenuLinkItem>
+            <HeaderMenuLinkItem url="reviews">Reviews</HeaderMenuLinkItem>
         </li>
         <li>
-            <HeaderMenuLinkItem url="#">Contact</HeaderMenuLinkItem>
+            <HeaderMenuLinkItem url="contact">Contact</HeaderMenuLinkItem>
         </li>
     </ul>
 </template>

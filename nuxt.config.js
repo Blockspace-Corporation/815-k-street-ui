@@ -46,5 +46,26 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+  },
+
+  tailwindcss: {
+    config: {
+      theme: {
+        backgroundColor: theme => ({
+          ...theme('colors'),
+          'primary': '#FFB700',
+          'secondary': '#C00A27',
+          'secondary-hover': '#FF0029',
+          'danger': '#e3342f',
+        }),
+        textColor: {
+          'white': '#FFFFFF',
+          'primary': '#FFB700',
+          'link-hover': '#F4B618',
+          'secondary': '#C00A27',
+          'danger': '#e3342f',
+        }
+      }
+    }
   }
 }
