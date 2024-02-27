@@ -12,14 +12,8 @@
         <Button to="menu">View Menu</Button>
       </div>
     </BodyImageBanner>
-    <BodyPaperField></BodyPaperField>
+    <BodyPaperField>
+      <SectionsKoreanChineseCuisine />
+    </BodyPaperField>
   </div>
-
-  <!-- <Tutorial/> -->
 </template>
-
-<script>
-export default {
-  name: 'IndexPage',
-}
-</script>

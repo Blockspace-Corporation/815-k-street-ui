@@ -66,6 +66,7 @@ export default {
           'secondary': '#C00A27',
           'danger': '#e3342f',
           'grey': '#3A3A3A',
+          'grey-lighter': '#686464'
         },
         extend: {
           height: {
