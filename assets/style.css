@@ -6,11 +6,15 @@ html, body {
   background-color: #000;
 }
 
-.home-slider .owl-nav.disabled + .owl-dots {
+.home-slider .owl-dots {
     position: absolute;
     bottom: 50px;
     left: 0px;
     width: 100%;
+}
+
+.gallery-section .owl-dots {
+    margin-top: 30px !important;
 }
 
 .owl-theme .owl-dots .owl-dot span {
