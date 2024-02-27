@@ -6,6 +6,6 @@
             <p>20% Discount for every 5,000 purchase.</p>
             <br />
             <Button>place an order</Button>
-        </center class="z-10">
+        </center>
     </BodyImageBanner>
 </template>
