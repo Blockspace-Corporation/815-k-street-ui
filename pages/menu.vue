@@ -5,6 +5,7 @@
         <BodyPaperField>
             <h1>Menu</h1>
         </BodyPaperField>
+        <SectionsSimpleAndDeliciousFood />
         <SectionsOurClient/>
     </div>
 </template>

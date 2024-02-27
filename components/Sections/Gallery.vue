@@ -4,7 +4,7 @@
             <h1 class="text-2xl font-bold">Gallery</h1>
         </div>
         <br />
-        <carousel items="1" :nav="false">
+        <carousel class="gallery-section" items="1" :nav="false">
             <div
                 v-for="(imgs, page_k) in perPage" :key="`gallery-page-${page_k}`"
                 class="grid grid-cols-4 grid-flow-row auto-cols-fr gap-4"
