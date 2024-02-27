@@ -5,3 +5,10 @@ html, body {
   font-style: normal;
   background-color: #000;
 }
+
+.home-slider .owl-nav.disabled + .owl-dots {
+    position: absolute;
+    bottom: 50px;
+    left: 0px;
+    width: 100%;
+}
