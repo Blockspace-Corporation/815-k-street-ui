@@ -10,5 +10,6 @@ import UpgradeToLatestTaste from '../components/Sections/UpgradeToLatestTaste.vu
     <SectionsGallery />
     <SectionsStatistics />
     <SectionsSimpleAndDeliciousFood />
+    <SectionsOurClient />
   </div>
 </template>
