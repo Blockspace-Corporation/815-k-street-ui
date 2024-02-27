@@ -56,6 +56,7 @@ export default {
           'primary': '#FFB700',
           'secondary': '#C00A27',
           'secondary-hover': '#FF0029',
+          'tertiary': '#C00A27',
           'danger': '#e3342f',
         }),
         textColor: {
@@ -66,11 +67,11 @@ export default {
           'danger': '#e3342f',
           'grey': '#3A3A3A',
         },
-        height: theme => ({
-          ...theme('heights'),
-          'screen': '100vh',
-          'almost': '65vh'
-        })
+        extend: {
+          height: {
+            'almost': '65vh',
+          },
+        }
       }
     }
   }
