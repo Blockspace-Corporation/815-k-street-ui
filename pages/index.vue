@@ -14,10 +14,8 @@ import UpgradeToLatestTaste from '../components/Sections/UpgradeToLatestTaste.vu
         <Button to="menu">View Menu</Button>
       </div>
     </BodyImageBanner>
-    <BodyPaperField>
-      <SectionsKoreanChineseCuisine />
-    </BodyPaperField>
+    <SectionsKoreanChineseCuisine />
     <SectionsUpgradeToLatestTaste />
-    <BodyPaperField></BodyPaperField>
+    <SectionsWhatMakesOurMenuSpecial />
   </div>
 </template>

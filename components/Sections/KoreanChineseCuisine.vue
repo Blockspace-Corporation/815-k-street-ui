@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <BodyPaperField>
         <div class="flex flex-col gap-2 items-center justify-center text-grey">
             <h1 class="text-2xl font-bold">Korean + Chinese Cuisines</h1>
             <p>Incredibly Authentic Tasty Dish</p>
@@ -32,5 +32,5 @@
                 </BodyImageListItem>
             </div>
         </div>
-    </div>
+    </BodyPaperField>
 </template>
