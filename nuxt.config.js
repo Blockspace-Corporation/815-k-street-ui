@@ -59,6 +59,8 @@ export default {
           'secondary-hover': '#FF0029',
           'tertiary': '#C00A27',
           'danger': '#e3342f',
+          'shadowed-white': '#F9F9F9',
+          'stroke-grey': '#E4E4E4'
         }),
         textColor: {
           'white': '#FFFFFF',
