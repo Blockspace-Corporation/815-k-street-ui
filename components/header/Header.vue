@@ -18,7 +18,7 @@ export default {
     content: "";
     width: 100%;
     height: 0px;
-    box-shadow: 0px 0px 199px 127px #000000;
+    box-shadow: 0px 0px 122px 83px #000000;
     position: absolute;
     left: 0px;
     top: 0px;
