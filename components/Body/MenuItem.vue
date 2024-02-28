@@ -22,8 +22,8 @@ export default {
             type: String
         },
         rating: {
-            default: '',
-            type: String
+            default: 0,
+            type: Number
         },
         price: {
             default: '',
