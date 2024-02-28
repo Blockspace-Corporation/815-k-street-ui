@@ -5,7 +5,7 @@
             'min-h-screen': fullHeight,
             'min-h-almost': !fullHeight,
             'shadowed': shadowed,
-            'px-4': smallGutter
+            'md:px-4': smallGutter
         }"
         :style="'background-image:url(' + bg + ')'"
     >
