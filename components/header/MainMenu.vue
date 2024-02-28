@@ -1,5 +1,5 @@
 <template>
-    <ul class="hidden md:flex gap-2">
+    <ul class="fixed top-0 left-0 w-full md:w-auto h-screen md:h-auto md:static hidden md:flex flex-col md:flex-row items-center justify-center gap-2 bg-black md:bg-transparent">
         <li>
             <HeaderMenuLinkItem url="/">Home</HeaderMenuLinkItem>
         </li>

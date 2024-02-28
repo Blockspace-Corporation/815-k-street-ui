@@ -1,6 +1,9 @@
 <template>
     <div class="banner z-20 bg-white md:bg-transparent flex items-center gap-2 justify-between px-4 md:px-8 py-4 fixed w-full top-0 left-0">
-        <div class="w-4/12">
+        <div class="w-4/12 flex items-center gap-4">
+            <a href="#" class="block md:hidden">
+                <img src="icons/hamburger.webp" />
+            </a>
             <HeaderLogo/>
         </div>
         <HeaderMainMenu/>
