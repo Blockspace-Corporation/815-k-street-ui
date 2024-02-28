@@ -3,7 +3,7 @@
         <label>{{ label }}</label>
         <template v-if="type == 'textarea'">
             <textarea
-                class="h-72 bg-input-default h-12 p-2 focus:outline-none focus:ring rounded"
+                class="h-72 bg-input-default h-32 p-2 focus:outline-none focus:ring rounded"
                 v-bind:value="modelValue"
                 v-on:input="$emit('input', $event.target.value)"
             ></textarea>

@@ -4,7 +4,7 @@
         <InputField label="Email" v-model="form.email"/>
         <InputField label="Mobile Number" v-model="form.phone"/>
         <InputField label="What can we help you with?" type="textarea" v-model="form.message"/>
-        <Button class="w-40">Submit</Button>
+        <Button class="w-40" submit>Submit</Button>
     </form>
 </template>
 
