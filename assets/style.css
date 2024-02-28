@@ -24,3 +24,14 @@ html, body {
 .owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
     background-color: #c00a27 !important;
 }
+
+.page-enter-active,
+.page-leave-active {
+    transition: 0.5s;
+}
+
+.page-enter,
+.page-leave-to {
+    opacity: 0.1;
+    transform: translateY(-20px);
+}
