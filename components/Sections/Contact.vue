@@ -6,8 +6,8 @@
         </div>
         <br />
         <br />
-        <div class="flex gap-6 justify-center">
-            <div class="w-5/12">
+        <div class="flex flex-col md:flex-row gap-6 justify-center">
+            <div class="md:w-5/12">
                 <label class="font-bold">Address</label>
                 <p class="text-sm">Space 101, The Walk, IT Park, Lahug, Cebu City</p>
                 <br />
@@ -21,7 +21,7 @@
                 <p class="text-sm">reservations@hwangguemsoeng.com</p>
                 <br />
             </div>
-            <FormsContactForm class="w-5/12" />
+            <FormsContactForm class="md:w-5/12" />
         </div>
         <br />
         <br />

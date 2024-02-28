@@ -1,9 +1,9 @@
 <template>
-    <div class="banner z-20 bg-transparent flex items-center gap-2 justify-between px-8 py-4 fixed w-full top-0 left-0">
+    <div class="banner z-20 bg-white md:bg-transparent flex items-center gap-2 justify-between px-4 md:px-8 py-4 fixed w-full top-0 left-0">
         <div class="w-4/12">
             <HeaderLogo/>
         </div>
-        <HeaderMainMenu />
+        <HeaderMainMenu/>
         <HeaderRightSection class="w-4/12" />
     </div>
 </template>
@@ -23,5 +23,11 @@ export default {
     left: 0px;
     top: 0px;
     z-index: -1;
+}
+
+@media(max-width: 767px) {
+    .banner:after {
+        content: none
+    }
 }
 </style>

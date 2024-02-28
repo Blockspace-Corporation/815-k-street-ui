@@ -10,7 +10,7 @@
         <br />
         <div class="flex gap-4 flex-wrap justify-center">
             <BodyTestimonialThumb
-                class="w-5/12"
+                class="md:w-5/12"
                 v-for="(review, k) in reviews" :key="`review-item-${k}`"
                 :from="review.from"
                 :photo="review.photo"

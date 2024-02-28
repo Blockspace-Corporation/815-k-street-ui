@@ -2,7 +2,7 @@
     <no-ssr>
         <carousel class="home-slider" items="1" :loop="true" :autoplay="true" :autoHeight="true" :nav="false">
             <BodyImageBanner bg="banners/home-banner.webp" fullHeight>
-                <div class="w-3/4">
+                <div class="w-full md:w-3/4">
                     <span>Mega Discount on</span>
                     <br />
                     <br />
@@ -14,7 +14,7 @@
                 </div>
             </BodyImageBanner>
             <BodyImageBanner bg="banners/home-banner.webp" fullHeight>
-                <div class="w-3/4">
+                <div class="w-full md:w-3/4">
                     <span>Mega Discount on</span>
                     <br />
                     <br />
@@ -26,7 +26,7 @@
                 </div>
             </BodyImageBanner>
             <BodyImageBanner bg="banners/home-banner.webp" fullHeight>
-                <div class="w-3/4">
+                <div class="w-full md:w-3/4">
                     <span>Mega Discount on</span>
                     <br />
                     <br />

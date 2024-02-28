@@ -1,6 +1,6 @@
 <template>
-    <BodyPaperField class="flex gap-6 items-center flex-row-reverse bg-cover bg-center" :style="'background-image:url(banners/white-bg.webp)'">
-        <div class="w-1/2">
+    <BodyPaperField class="flex gap-6 items-center flex-col-reverse md:flex-row-reverse bg-cover bg-center" :style="'background-image:url(banners/white-bg.webp)'">
+        <div class="md:w-1/2">
             <h2 class="text-2xl font-bold">What Makes Our Menus Special ?</h2>
             <br />
             <div class="flex flex-col gap-4">
@@ -22,7 +22,7 @@
                 </BodyImageListItem>
             </div>
         </div>
-        <div class="w-4/12 flex-1 flex items-center justify-end p-6">
+        <div class="md:w-4/12 flex-1 flex items-center justify-center md:justify-end p-6">
             <img src="images/menu-special.webp" class="w-10/12">
         </div>
     </BodyPaperField>

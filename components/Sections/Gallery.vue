@@ -7,7 +7,7 @@
         <carousel class="gallery-section" items="1" :nav="false">
             <div
                 v-for="(imgs, page_k) in perPage" :key="`gallery-page-${page_k}`"
-                class="grid grid-cols-4 grid-flow-row auto-cols-fr gap-4"
+                class="grid grid-cols-2 md:grid-cols-4 grid-flow-row auto-cols-fr gap-2 md:gap-4"
             >
                 <BodyGalleryThumb
                     v-for="(img, img_k) in imgs" :key="`gallery-img-${img_k}`" :img="img" 

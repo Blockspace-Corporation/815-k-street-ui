@@ -5,8 +5,8 @@
             <p>Incredibly Authentic Tasty Dish</p>
         </div>
         <br />
-        <div class="flex gap-6 items-between">
-            <div class="flex flex-col gap-4 w-4/12">
+        <div class="flex flex-col md:flex-row gap-6 items-between">
+            <div class="flex flex-col gap-4 md:w-4/12">
                 <BodyImageListItem icon="icons/c-korean.png" title="Korean Cuisines" reversed>
                     Korean cuisine, renowned for vibrant flavors and communal dining, weaves a rich tapestry of cultural history through iconic dishes like kimchi, barbecue, and soul-warming stews.
                 </BodyImageListItem>
@@ -17,10 +17,10 @@
                     Asian cuisine, diverse and rich, spans a spectrum of flavors from Chinese dim sum to Japanese sushi, Thai curries, and vibrant Indian street food, reflecting the continent's cultural diversity.
                 </BodyImageListItem>
             </div>
-            <div class="w-3/12 flex-1 flex items-center justify-center p-6">
-                <img src="images/middle-img.webp" class="h-auto">
+            <div class="md:w-3/12 flex-1 flex items-center justify-center p-6">
+                <img src="images/middle-img.webp" class="h-auto block w-3/4 md:w-full">
             </div>
-            <div class="flex flex-col gap-4 w-4/12">
+            <div class="flex flex-col gap-4 md:w-4/12">
                 <BodyImageListItem icon="icons/c-chinese.png" title="Chinese Cuisines">
                     Facilisis mauris sit amet massa vitae tortor condimentum. Sit amet nisl purus in mollis nunc sed id eu mi bibendum.
                 </BodyImageListItem>

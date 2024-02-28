@@ -6,7 +6,7 @@
         </div>
         <br />
         <div class="flex gap-6 items-between">
-            <p class="text-sm text-justify text-grey-lighter">Welcome to Hwang Geum Seong, where the rich tapestry of Korean-Chinese cuisine unfolds in a symphony of flavors
+            <p class="md:text-sm text-justify text-grey-lighter">Welcome to Hwang Geum Seong, where the rich tapestry of Korean-Chinese cuisine unfolds in a symphony of flavors
                 flavors that captivate the senses. Established with a passion for culinary excellence, our restaurant seamlessly marries the 
                 traditional flavors of Korea and China, creating a gastronomic journey that transcends borders. At Hwang Geum Seong, we take 
                 pride in crafting a menu that showcases the finest ingredients, culinary techniques, and cultural nuances of both Korean and 

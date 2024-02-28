@@ -1,10 +1,10 @@
 <template>
-    <div class="flex justify-between">
+    <div class="flex flex-wrap md:flex-no-wrap justify-between">
         <div
             v-for="(record, k) in records" :key="`statistic-${k}`"
             class="flex flex-col gap-2 items-center"
         >
-            <img :src="record.icon" class="w-10">
+            <img :src="record.icon" class="w-40 md:w-10">
             <span class="font-bold">{{ record.label }}</span>
             <span class="text-lg text-secondary font-bold">{{ record.count }}</span>
         </div>

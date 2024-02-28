@@ -13,7 +13,7 @@
             }"
         >
             <h3 class="text-secondary font-bold">{{ title }}</h3>
-            <p class="text-sm text-grey-lighter">
+            <p class="md:text-sm text-grey-lighter">
                 <slot></slot>
             </p>
         </div>

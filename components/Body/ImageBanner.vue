@@ -1,6 +1,6 @@
 <template>
     <div
-        class="relative overflow-hidden flex p-32 text-white bg-cover bg-center items-center" 
+        class="relative overflow-hidden flex p-4 md:p-32 text-white bg-cover bg-center items-center" 
         :class="{
             'min-h-screen': fullHeight,
             'min-h-almost': !fullHeight,

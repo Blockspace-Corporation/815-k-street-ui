@@ -1,6 +1,6 @@
 <template>
     <BodyImageBanner shadowed bg="banners/about_section_3.webp">
-      <div class="w-2/3 z-10">
+      <div class="md:w-2/3 z-10">
         <SectionTitle>
           Discover the Fusion <br />
           Feast: Korean-Chinese<br />
