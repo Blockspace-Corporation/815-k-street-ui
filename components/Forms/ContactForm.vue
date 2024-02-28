@@ -19,6 +19,6 @@ export default {
                 message: ''
             }
         }
-    }
+    },
 }
 </script>
