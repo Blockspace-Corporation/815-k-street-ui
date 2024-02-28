@@ -60,7 +60,8 @@ export default {
           'tertiary': '#C00A27',
           'danger': '#e3342f',
           'shadowed-white': '#F9F9F9',
-          'stroke-grey': '#E4E4E4'
+          'stroke-grey': '#E4E4E4',
+          'input-default': '#F1F1F1'
         }),
         textColor: {
           'white': '#FFFFFF',
