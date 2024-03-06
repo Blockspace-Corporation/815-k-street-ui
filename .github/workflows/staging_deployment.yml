@@ -17,6 +17,9 @@ jobs:
       - name: Building application
         run: |
           npm run build --
+      - name: Generating dist files
+        run: |
+          npm run generate
       - name: Setting up AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
