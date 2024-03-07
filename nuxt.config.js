@@ -4,7 +4,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'restaurant',
+    title: '815 K Street',
     htmlAttrs: {
       lang: 'en'
     },
