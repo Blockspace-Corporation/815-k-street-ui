@@ -17,6 +17,7 @@
         </div>
         <div class="flex bg-tertiary text-white px-4 md:px-32 py-4 font-light justify-between">
             <span class="text-sm"> © 2024  Hwang Geum Seong. All Right Reserved.</span>
+            <span>v1.0.0</span>
             <FooterSocialMedia />
         </div>
     </div>
