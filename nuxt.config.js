@@ -49,6 +49,10 @@ export default {
   build: {
   },
 
+  router: {
+    middleware: 'maintenance'
+  },
+
   tailwindcss: {
     config: {
       theme: {
