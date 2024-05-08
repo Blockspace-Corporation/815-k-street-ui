@@ -1,0 +1,35 @@
+name: production_deployment
+
+on:
+  push:
+    tags:
+      - v**-production
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Installing dependencies
+        run: |
+          npm install
+      - name: Building application
+        run: |
+          npm run build --
+      - name: Generating dist files
+        run: |
+          npm run generate
+      - name: Setting up AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+      - name: Uploading to PRODUCTION EC2
+        run: |
+          mkdir ~/.ssh
+          echo -e "${{ secrets.PRODUCTION_PRIVATE_KEY }}" > ~/.ssh/xgames-keypair
+          chmod 400 ~/.ssh/xgames-keypair
+          rsync -e "ssh -o StrictHostKeyChecking=no -i ~/.ssh/xgames-keypair" -r dist/* ${{ secrets.PRODUCTION_USERNAME }}@${{ secrets.PRODUCTION_HOST }}:${{ secrets.PRODUCTION_PATH }}
+          ssh -o StrictHostKeyChecking=no -i ~/.ssh/xgames-keypair ${{ secrets.PRODUCTION_USERNAME }}@${{ secrets.PRODUCTION_HOST }} 'sudo systemctl restart nginx'
