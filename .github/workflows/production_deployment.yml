@@ -29,7 +29,7 @@ jobs:
       - name: Uploading to PRODUCTION EC2
         run: |
           mkdir ~/.ssh
-          echo -e "${{ secrets.PRODUCTION_PRIVATE_KEY }}" > ~/.ssh/xgames-keypair
-          chmod 400 ~/.ssh/xgames-keypair
-          rsync -e "ssh -o StrictHostKeyChecking=no -i ~/.ssh/xgames-keypair" -r dist/* ${{ secrets.PRODUCTION_USERNAME }}@${{ secrets.PRODUCTION_HOST }}:${{ secrets.PRODUCTION_PATH }}
-          ssh -o StrictHostKeyChecking=no -i ~/.ssh/xgames-keypair ${{ secrets.PRODUCTION_USERNAME }}@${{ secrets.PRODUCTION_HOST }} 'sudo systemctl restart nginx'
+          echo -e "${{ secrets.PRODUCTION_PRIVATE_KEY }}" > ~/.ssh/ssh-keypair
+          chmod 400 ~/.ssh/ssh-keypair
+          rsync -e "ssh -o StrictHostKeyChecking=no -i ~/.ssh/ssh-keypair" -r dist/* ${{ secrets.PRODUCTION_USERNAME }}@${{ secrets.PRODUCTION_HOST }}:${{ secrets.PRODUCTION_PATH }}
+          ssh -o StrictHostKeyChecking=no -i ~/.ssh/ssh-keypair ${{ secrets.PRODUCTION_USERNAME }}@${{ secrets.PRODUCTION_HOST }} 'sudo systemctl restart nginx'
