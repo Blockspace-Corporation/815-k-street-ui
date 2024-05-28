@@ -86,15 +86,11 @@ export default {
   },
 
   router: {
-    middleware: ['auth'],
+    middleware: ['auth', 'maintenance'],
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-  },
-
-  router: {
-    // middleware: 'maintenance'
   },
 
   tailwindcss: {
