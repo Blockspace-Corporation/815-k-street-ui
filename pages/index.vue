@@ -13,3 +13,9 @@ import UpgradeToLatestTaste from '../components/Sections/UpgradeToLatestTaste.vu
     <SectionsOurClient />
   </div>
 </template>
+
+<script>
+export default {
+  auth: false
+}
+</script>
