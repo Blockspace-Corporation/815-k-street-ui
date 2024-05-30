@@ -1,11 +1,14 @@
 <template>
     <div class="p-2">
         <a href="#" class="flex flex-col gap-1 items-center bg-shadowed-white px-2 py-6">
-            <img :src="img" alt="">
+            <img :src="img.filename" alt="">
             <StarRating :value="rating" />
             <span class="font-bold text-lg">{{ name }}</span>
             <Divider />
-            <span class="text-grey-lighter">{{ price }}</span>
+            <span class="text-grey-lighter">
+                {{ price }}
+                <span class="text-xs">PHP</span>
+            </span>
         </a>
     </div>
 </template>
@@ -13,9 +16,9 @@
 <script>
 export default {
     props: {
-        img: {
-            default: '',
-            type: String
+        images: {
+            default: [],
+            type: Array
         },
         name: {
             default: '',
@@ -27,7 +30,12 @@ export default {
         },
         price: {
             default: '',
-            type: String
+            type: Number
+        }
+    },
+    computed: {
+        img() {
+            return this.images.find( (item) => item.cover == true )
         }
     }
 }
