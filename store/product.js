@@ -12,6 +12,9 @@ export const getters = {
     },
     total(state) {
         return state.data.total
+    },
+    pagination(state) {
+        return state.data.links
     }
 }
 
