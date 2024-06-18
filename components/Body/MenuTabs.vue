@@ -3,14 +3,16 @@
         <li>
             <BodyMenuTabItem :active="!$route.query.category" @click="getProducts(null)">All</BodyMenuTabItem>
         </li>
-        <li v-for="(category, k) in categories" :key="`categogry-${k}`">
-            <BodyMenuTabItem
-                :active="parseInt($route.query.category) == category.id"
-                @click="getProducts(category)"
-            >
-                {{ category.name }}
-            </BodyMenuTabItem>
-        </li>
+        <template v-if="categories && categories.length" >
+            <li v-for="(category, k) in categories" :key="`categogry-${k}`">
+                <BodyMenuTabItem
+                    :active="parseInt($route.query.category) == category.id"
+                    @click="getProducts(category)"
+                >
+                    {{ category.name }}
+                </BodyMenuTabItem>
+            </li>
+        </template>
     </ul>
 </template>
 

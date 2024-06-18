@@ -9834,6 +9834,17 @@ vue-no-ssr@^1.1.1:
   resolved "https://registry.npmjs.org/vue-no-ssr/-/vue-no-ssr-1.1.1.tgz"
   integrity sha512-ZMjqRpWabMPqPc7gIrG0Nw6vRf1+itwf0Itft7LbMXs2g3Zs/NFmevjZGN1x7K3Q95GmIjWbQZTVerxiBxI+0g==
 
+vue-owl-carousel@^2.0.3:
+  version "2.0.3"
+  resolved "https://registry.npmjs.org/vue-owl-carousel/-/vue-owl-carousel-2.0.3.tgz"
+  integrity sha512-TRl6pnbL0HqlebOpEzbGbXL4KxJwlDGxAWeCREjNumvsjB5MXg875y+fkko/M3ML1nxJXIRHw1XWmXgxaQbang==
+  dependencies:
+    css-loader "^1.0.0"
+    file-loader "^2.0.0"
+    jquery "^3.3.1"
+    owl.carousel "^2.3.4"
+    style-loader "^0.23.0"
+
 vue-router@^3.6.5:
   version "3.6.5"
   resolved "https://registry.npmjs.org/vue-router/-/vue-router-3.6.5.tgz"

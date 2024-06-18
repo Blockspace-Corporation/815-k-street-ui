@@ -1,5 +1,5 @@
 <template>
-    <div v-if="products.length">
+    <div v-if="products && products.length">
         <div class="flex flex-wrap mb-6">
             <BodyMenuItem
                 class="w-3/12"
@@ -8,6 +8,7 @@
                 :name="product.name"
                 :price="product.price"
                 :rating="product.rating"
+                :slug="product.id"
             />
         </div>
         <div class="flex justify-end items-center">

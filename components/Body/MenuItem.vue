@@ -1,6 +1,6 @@
 <template>
     <div class="p-2">
-        <a href="#" class="flex flex-col gap-1 items-center bg-shadowed-white px-2 py-6">
+        <nuxt-link :to="`product/${slug}`" class="flex flex-col gap-1 items-center bg-shadowed-white px-2 py-6">
             <img :src="img.filename" alt="">
             <StarRating :value="rating" />
             <span class="font-bold text-lg">{{ name }}</span>
@@ -9,7 +9,7 @@
                 {{ price }}
                 <span class="text-xs">PHP</span>
             </span>
-        </a>
+        </nuxt-link>
     </div>
 </template>
 
@@ -31,6 +31,10 @@ export default {
         price: {
             default: '',
             type: Number
+        },
+        slug: {
+            default: '',
+            type: String
         }
     },
     computed: {
