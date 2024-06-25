@@ -1,4 +1,8 @@
+const env = require('dotenv').config();
+const api_url = env.parsed.API_URL
+
 export default {
+  env: env.parsed,
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
 
@@ -43,14 +47,53 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+    '@nuxtjs/auth-next',
+    '@nuxtjs/toast',
+    '@nuxtjs/axios',
   ],
 
-  // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {
+  axios: {
+    baseURL: api_url,
+    credentials: true,
+  },
+
+  auth: {
+    rewriteRedirects: true,
+    fullPathRedirect: true,
+    redirect: {
+      login: '/login',
+      logout: '/login',
+      callback: false,
+      home: false,
+    },
+    strategies: {
+      local: {
+        token: {
+          maxAge: 259200,
+        },
+        endpoints: {
+          login: { url: `${api_url}/login`, method: 'post', propertyName: 'token' },
+          logout: { url: `${api_url}/logout`, method: 'post' },
+          user: { url: `${api_url}/self`, method: 'get', propertyName: false },
+        },
+        tokenType: 'Bearer',
+        user: {
+          property: false,
+        },
+      },
+    },
+    watchLoggedIn: true,
   },
 
   router: {
-    middleware: 'maintenance'
+    middleware: [
+      'auth',
+      // 'maintenance'
+    ],
+  },
+
+  // Build Configuration: https://go.nuxtjs.dev/config-build
+  build: {
   },
 
   tailwindcss: {
@@ -86,5 +129,19 @@ export default {
         }
       }
     }
+  },
+
+  toast: {
+    position: 'top-right',
+    duration: 3000,
+    register: [ // Register custom toasts
+      {
+        name: 'my-error',
+        message: 'Oops...Something went wrong',
+        options: {
+          type: 'error'
+        }
+      }
+    ]
   }
 }

@@ -4,6 +4,7 @@
         :class="{
             'bg-secondary-hover': active
         }"
+        @click="handleClick"
     >
         <slot></slot>
     </button>
@@ -15,6 +16,11 @@ export default {
         active: {
             default: false,
             type: Boolean
+        }
+    },
+    methods: {
+        handleClick() {
+            this.$emit('click')
         }
     }
 }

@@ -4,16 +4,16 @@
             <HeaderMenuLinkItem url="/">Home</HeaderMenuLinkItem>
         </li>
         <li>
-            <HeaderMenuLinkItem url="about">About</HeaderMenuLinkItem>
+            <HeaderMenuLinkItem url="/about">About</HeaderMenuLinkItem>
         </li>
         <li>
-            <HeaderMenuLinkItem url="menu">Menu</HeaderMenuLinkItem>
+            <HeaderMenuLinkItem url="/menu">Menu</HeaderMenuLinkItem>
         </li>
         <li>
-            <HeaderMenuLinkItem url="reviews">Reviews</HeaderMenuLinkItem>
+            <HeaderMenuLinkItem url="/reviews">Reviews</HeaderMenuLinkItem>
         </li>
         <li>
-            <HeaderMenuLinkItem url="contact">Contact</HeaderMenuLinkItem>
+            <HeaderMenuLinkItem url="/contact">Contact</HeaderMenuLinkItem>
         </li>
     </ul>
 </template>

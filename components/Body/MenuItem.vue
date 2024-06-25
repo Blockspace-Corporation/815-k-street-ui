@@ -1,21 +1,24 @@
 <template>
     <div class="p-2">
-        <a href="#" class="flex flex-col gap-1 items-center bg-shadowed-white px-2 py-6">
-            <img :src="img" alt="">
+        <nuxt-link :to="`product/${slug}`" class="flex flex-col gap-1 items-center bg-shadowed-white px-2 py-6">
+            <img :src="img.filename" alt="">
             <StarRating :value="rating" />
             <span class="font-bold text-lg">{{ name }}</span>
             <Divider />
-            <span class="text-grey-lighter">{{ price }}</span>
-        </a>
+            <span class="text-grey-lighter">
+                {{ price }}
+                <span class="text-xs">PHP</span>
+            </span>
+        </nuxt-link>
     </div>
 </template>
 
 <script>
 export default {
     props: {
-        img: {
-            default: '',
-            type: String
+        images: {
+            default: [],
+            type: Array
         },
         name: {
             default: '',
@@ -27,7 +30,16 @@ export default {
         },
         price: {
             default: '',
+            type: Number
+        },
+        slug: {
+            default: '',
             type: String
+        }
+    },
+    computed: {
+        img() {
+            return this.images.find( (item) => item.cover == true )
         }
     }
 }

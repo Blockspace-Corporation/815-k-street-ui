@@ -14,3 +14,25 @@
         <BodyMenuList />
     </BodyPaperField>
 </template>
+
+<script>
+export default {
+  async fetch() {
+    let url = '/products'
+    if (this.$route.query.category) {
+        url += '?category=' + parseInt(this.$route.query.category) || null
+    }
+
+    const response = await this.$axios.get(url)
+    
+    if (response.status == 200) {
+      this.$store.commit('product/setProducts', response.data)
+    }
+
+    const response_cat = await this.$axios.get('/categories')
+    if (response_cat.status == 200) {
+      this.$store.commit('category/setCategories', response_cat.data)
+    }
+  },
+}
+</script>

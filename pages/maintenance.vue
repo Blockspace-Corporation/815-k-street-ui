@@ -9,6 +9,7 @@
 
 <script>
 export default {
+    auth: false,
     layout: 'blank'
 }
 </script>

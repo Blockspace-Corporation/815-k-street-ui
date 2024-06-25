@@ -2,12 +2,6 @@
     <div>
         <BodyImageBanner bg="banners/contact-banner.webp">
         </BodyImageBanner>
-        <SectionsContact />
+        <SectionsLogin />
     </div>
 </template>
-
-<script>
-export default {
-  auth: false
-}
-</script>
