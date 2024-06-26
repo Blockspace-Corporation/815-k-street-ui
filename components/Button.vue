@@ -2,10 +2,10 @@
     <button
         v-if="!to" :type="submit ? 'submit' : 'button'" 
         @click="handleClick" 
-        class="text-white bg-secondary hover:bg-secondary-hover p-3 uppercase">
+        class="text-white bg-secondary hover:bg-secondary-hover p-3">
         <slot></slot>
     </button>
-    <router-link v-else :to="to" class="text-white bg-secondary hover:bg-secondary-hover p-3 uppercase">
+    <router-link v-else :to="to" class="text-white bg-secondary hover:bg-secondary-hover p-3">
         <slot></slot>
     </router-link>
 </template>
