@@ -1,25 +1,17 @@
 <template>
-    <div class="bg-cover bg-center" :style="'background-image:url(banners/footer-bg.webp)'">
-        <div class="flex flex-col md:flex-row px-4 md:px-32 py-16 gap-6 md:gap-0 items-center md:items-start justify-between text-white">
-            <div class="ways-to-contact w-1/2">
-                <img src="~/static/logo.webp" alt="" class="w-48">
-                <br />
-                <ul class="flex flex-col gap-3 md:text-sm">
-                    <li><FooterContactListItem icon="icons/pin.png">The Walk IT Park, Lahug, Cebu City,<br />Philippines</FooterContactListItem></li>
-                    <li><FooterContactListItem icon="icons/phone.png">+63 917 117 7392</FooterContactListItem></li>
-                    <li><FooterContactListItem icon="icons/email.png">info@hwanggeumseong.com</FooterContactListItem></li>
-                    <li><FooterContactListItem icon="icons/time.png">9.30AM - 7.30PM</FooterContactListItem></li>
+    <div class="bg-[#0A0D10] flex justify-center items-center py-12 lg:py-0 px-2 md:px-0">
+        <div class="flex-1 md:pl-20 flex flex-col md:flex-row items-center gap-8 md:gap-16">
+            <img src="~/static/logo-greyscale.webp" class="grayscale h-[83px]">
+            <div class="flex flex-col gap-4 text-white text-xs">
+                <ul class="flex gap-2 sm:gap-4 items-center flex-col sm:flex-row justify-center md:justify-start">
+                    <li v-for="(link, k) in links" :key="`footer-link-${k}`">
+                        <a :href="link.url">{{ link.label }}</a>
+                    </li>
                 </ul>
+                <p class="text-center md:text-left">Copyright © 2024  Hwang Geum Seong. Last updated June 14, 2024</p>
             </div>
-            <FooterLinkList title="Information" :links="informationLinks"/>
-            <FooterLinkList title="Help" :links="HelpLinks"/>
-            <FooterLinkList title="Legal" :links="LegalLinks"/>
         </div>
-        <div class="flex bg-tertiary text-white px-4 md:px-32 py-4 font-light justify-between">
-            <span class="text-sm"> © 2024  Hwang Geum Seong. All Right Reserved.</span>
-            <span>v1.0.0</span>
-            <FooterSocialMedia />
-        </div>
+        <img src="~/static/footer-img.webp" class="hidden lg:block h-[230px]">
     </div>
 </template>
 
@@ -27,19 +19,13 @@
 export default {
     data() {
         return {
-            informationLinks: [
-                { url: '#', label: 'Store Location' },
-                { url: '#', label: 'Refund & Return' },
-                { url: '#', label: 'Deliveries' },
-            ],
-            HelpLinks: [
-                { url: '#', label: 'Contact Us' },
-                { url: '#', label: 'About Us' },
-            ],
-            LegalLinks: [
+            links: [
+                { url: '#', label: 'Terms of Service' },
                 { url: '#', label: 'Privacy Policy' },
-                { url: '#', label: 'Terms of Use' },
-            ]
+                { url: '#', label: 'Cookie Policies' },
+                { url: '#', label: 'FAQs' },
+                { url: '#', label: 'Reservations' },
+            ],
         }
     }
 }
