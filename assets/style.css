@@ -35,3 +35,7 @@ html, body {
     opacity: 0.1;
     transform: translateY(-20px);
 }
+
+.dm-serif {
+    font-family: "DM Serif Display", serif;
+}

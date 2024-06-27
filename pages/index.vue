@@ -3,14 +3,14 @@ import UpgradeToLatestTaste from '../components/Sections/UpgradeToLatestTaste.vu
 <template>
   <div>
     <SectionsHomeSlider />
-    <SectionsKoreanChineseCuisine />
+    <!-- <SectionsKoreanChineseCuisine />
     <SectionsUpgradeToLatestTaste />
     <SectionsWhatMakesOurMenuSpecial />
     <SectionsPopularCollection />
     <SectionsGallery />
     <SectionsStatistics />
     <SectionsSimpleAndDeliciousFood />
-    <SectionsOurClient />
+    <SectionsOurClient /> -->
   </div>
 </template>
 
