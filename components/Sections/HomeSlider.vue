@@ -6,46 +6,35 @@
                 <p class="text-white my-4">Experience Korean x Chinese Fusion</p>
                 <a href="#" class="inline-block py-3 px-6 border border-red-500 font-bold text-white">See Our Menu</a>
             </div>
+            <div class="w-full">
+                <no-ssr>
+                    <carousel class="home-slider" items="1" :loop="true" autoplaySpeed="1000" :autoplay="true" :autoHeight="true" :nav="false">
+                        <div class="w-screen h-screen static">
+                            <img src="~/static/slider/img1.webp" class="absolute right-20 top-1/2 -translate-y-[50%]" style="width:800px">
+                        </div>
+                        <div class="w-screen h-screen static">
+                            <img src="~/static/slider/img2.webp" class="absolute right-20 top-1/2 -translate-y-[50%]" style="width:800px">
+                        </div>
+                        <div class="w-screen h-screen static">
+                            <img src="~/static/slider/img3.webp" class="absolute right-20 top-1/2 -translate-y-[50%]" style="width:800px">
+                        </div>
+                    </carousel>
+                </no-ssr>
+            </div>
         </div>
-        <no-ssr>
-            <!-- <carousel class="home-slider" items="1" :loop="true" :autoplay="true" :autoHeight="true" :nav="false">
-                <BodyImageBanner bg="banners/home-banner.webp" fullHeight>
-                    <div class="w-full md:w-3/4">
-                        <span>Mega Discount on</span>
-                        <br />
-                        <br />
-                        <SectionTitle>Tasty Bites<br />Healthy Foods</SectionTitle>
-                        <br />
-                        <p class="text-2xl">10 - 50% OFF</p>
-                        <br />
-                        <Button to="menu">View Menu</Button>
-                    </div>
-                </BodyImageBanner>
-                <BodyImageBanner bg="banners/home-banner.webp" fullHeight>
-                    <div class="w-full md:w-3/4">
-                        <span>Mega Discount on</span>
-                        <br />
-                        <br />
-                        <SectionTitle>Tasty Bites<br />Healthy Foods</SectionTitle>
-                        <br />
-                        <p class="text-2xl">10 - 50% OFF</p>
-                        <br />
-                        <Button to="menu">View Menu</Button>
-                    </div>
-                </BodyImageBanner>
-                <BodyImageBanner bg="banners/home-banner.webp" fullHeight>
-                    <div class="w-full md:w-3/4">
-                        <span>Mega Discount on</span>
-                        <br />
-                        <br />
-                        <SectionTitle>Tasty Bites<br />Healthy Foods</SectionTitle>
-                        <br />
-                        <p class="text-2xl">10 - 50% OFF</p>
-                        <br />
-                        <Button to="menu">View Menu</Button>
-                    </div>
-                </BodyImageBanner>
-            </carousel> -->
-        </no-ssr>
     </div>
 </template>
+
+<script>
+export default {
+    data() {
+        return {
+            slider_images: [
+                '/static/slider/img1.png',
+                '/static/slider/img2.png',
+                '/static/slider/img3.png',
+            ]
+        }
+    }
+}
+</script>
