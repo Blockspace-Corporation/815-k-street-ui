@@ -25,6 +25,58 @@ html, body {
     background-color: #c00a27 !important;
 }
 
+.home-slider .owl-nav {
+    position: absolute;
+    right: 20px;
+    bottom: 30px;
+    color: #fff;
+    display: flex;
+    gap: 0 !important;
+    z-index: 99;
+}
+
+.home-slider .owl-nav button {
+    display: block;
+    height: 60px;
+    width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #000 !important;
+    border-radius: 0px !important;
+    border: none;
+    opacity: 0.5;
+    margin: 0 !important;
+    position: relative;
+    color: #000 !important;
+}
+
+.home-slider .owl-nav button:last-child {
+    background-color: #F0A323 !important;
+    color: #F0A323 !important;
+    opacity: 1 !important;
+}
+
+.home-slider .owl-nav button:first-child::after {
+    content: "←";
+    position: absolute;
+    color: #fff;
+    font-size: 30px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.home-slider .owl-nav button:last-child::after {
+    content: "→";
+    position: absolute;
+    color: #000;
+    font-size: 30px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
 .page-enter-active,
 .page-leave-active {
     transition: 0.5s;
