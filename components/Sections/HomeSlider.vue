@@ -1,8 +1,8 @@
 <template>
-    <div class="h-screen w-full bg-cover bg-no-repeat bg-center" style="background-image: url('home-slider-bg.webp');">
+    <div class="md:h-screen w-full bg-cover bg-no-repeat bg-center px-4" style="background-image: url('home-slider-bg.webp');">
         <div class="container mx-auto relative h-full">
-            <div class="absolute top-1/2 w-1/4 -translate-y-[50%]">
-                <h1 class="text-[#F0A323] text-[64px] dm-serif leading-none">Savory flavors of Korean & Chinese cuisine</h1>
+            <div class="md:absolute md:top-1/2 md:w-1/4 md:-translate-y-[50%] z-10 mt-[100px] md:mt-0">
+                <h1 class="text-[#F0A323] md:text-[30px] lg:text-[46px] xl:text-[64px] 2xl:text-[80px] dm-serif leading-none">Savory flavors of Korean & Chinese cuisine</h1>
                 <p class="text-white my-4">Experience Korean x Chinese Fusion</p>
                 <a href="#" class="inline-block py-3 px-6 border border-red-500 font-bold text-white">See Our Menu</a>
             </div>
@@ -18,10 +18,10 @@
                         @dragged="handleCarouselUpdated"
                         @initialized="onInitialized"
                     >
-                        <div class="w-screen h-screen static" v-for="(item, k) in slider_images" :key="`slider-item-${k}`">
-                            <div class="item absolute right-20 top-1/2 -translate-y-[50%]">
+                        <div class="w-full h-[500px] md:w-screen md:h-screen static" v-for="(item, k) in slider_images" :key="`slider-item-${k}`">
+                            <div class="item absolute right-20 top-1/2 -translate-y-[50%] w-10/12 md:w-[500px] lg:w-[650px] xl:w-[800px] 2xl:w-[1000px]">
                                 <div class="relative w-full h-full">
-                                    <img :src="getImagePath(item.img)" class="w-full" style="width:800px">
+                                    <img :src="getImagePath(item.img)" class="w-full">
                                     <div :class="`slider-info absolute text-white z-10 h-[88px] bg-[#530F10] py-2 px-6`" :style="`right: ${item.right}%; top: ${item.top}%`">
                                         <p class="dm-serif">{{ item.name }}</p>
                                         <p>{{ item.korean }}</p>
