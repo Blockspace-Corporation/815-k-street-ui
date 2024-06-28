@@ -1,6 +1,6 @@
 <template>
     <div class="bg-cover bg-no-repeat" style="background-image: url('home-bg-1.webp');">
-        <div class="h-screen container mx-auto p-4 flex items-center justify-center text-center text-white">
+        <div class="h-screen container mx-auto px-4 flex items-center justify-center text-center text-white">
             <div>
                 <p class="uppercase">Korean chinese cuisine</p>
                 <h3 class="mt-2 dm-serif text-[#F0A323] leading-none text-2xl lg:text-[64px]">Original and Traditional Recipes</h3>

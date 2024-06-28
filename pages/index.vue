@@ -1,9 +1,9 @@
 
-import UpgradeToLatestTaste from '../components/Sections/UpgradeToLatestTaste.vue';
 <template>
   <div>
     <SectionsHomeSlider />
     <SectionsOrignalAndTraditionalRecepies />
+    <SectionsGallery />
     <!-- <SectionsKoreanChineseCuisine />
     <SectionsUpgradeToLatestTaste />
     <SectionsWhatMakesOurMenuSpecial />
