@@ -1,20 +1,26 @@
 <template>
-    <BodyPaperField smallGutter>
-        <div class="flex flex-col gap-2 items-center justify-center text-grey">
-            <h1 class="text-2xl font-bold">Gallery</h1>
-        </div>
-        <br />
-        <carousel class="gallery-section" items="1" :nav="false">
-            <div
-                v-for="(imgs, page_k) in perPage" :key="`gallery-page-${page_k}`"
-                class="grid grid-cols-2 md:grid-cols-4 grid-flow-row auto-cols-fr gap-2 md:gap-4"
-            >
-                <BodyGalleryThumb
-                    v-for="(img, img_k) in imgs" :key="`gallery-img-${img_k}`" :img="img" 
-                />
+    <div class="container mx-auto px-4 py-20">
+        <div class="text-center text-white pb-20">
+            <p class="uppercase">Gallery</p>
+            <h3 class="mt-2 dm-serif text-[#F0A323] leading-none text-2xl lg:text-[64px]">Discover our Popular Dishes</h3>
+            <div class="mt-20 flex gap-1">
+                <img src="~/static/gallery/gallery.webp" alt="" class="w-9/12 object-cover">
+                <img src="~/static/gallery/gallery-1.webp" alt="" class="w-3/12 object-cover">
             </div>
-        </carousel>
-    </BodyPaperField>
+            <div class="mt-1 flex gap-1">
+                <img src="~/static/gallery/gallery-2.webp" alt="" class="w-3/12 object-cover">
+                <img src="~/static/gallery/gallery-3.webp" alt="" class="w-3/12 object-cover">
+                <img src="~/static/gallery/gallery-4.webp" alt="" class="w-6/12 object-cover">
+            </div>
+            <div class="mt-20 flex gap-1">
+                <img src="~/static/gallery/gallery-2-1.webp" alt="" class="w-[20%] object-cover">
+                <img src="~/static/gallery/gallery-2-2.webp" alt="" class="w-[20%] object-cover">
+                <img src="~/static/gallery/gallery-2-3.webp" alt="" class="w-[20%] object-cover">
+                <img src="~/static/gallery/gallery-2-4.webp" alt="" class="w-[20%] object-cover">
+                <img src="~/static/gallery/gallery-2-5.webp" alt="" class="w-[20%] object-cover">
+            </div>
+        </div>
+    </div>
 </template>
 
 <script>
