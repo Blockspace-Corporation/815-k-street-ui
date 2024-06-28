@@ -3,6 +3,7 @@ import UpgradeToLatestTaste from '../components/Sections/UpgradeToLatestTaste.vu
 <template>
   <div>
     <SectionsHomeSlider />
+    <SectionsOrignalAndTraditionalRecepies />
     <!-- <SectionsKoreanChineseCuisine />
     <SectionsUpgradeToLatestTaste />
     <SectionsWhatMakesOurMenuSpecial />
