@@ -3,7 +3,7 @@
         <div class="h-screen container mx-auto p-4 flex items-center justify-center text-center text-white">
             <div>
                 <p class="uppercase">Korean chinese cuisine</p>
-                <h3 class="mt-2 dm-serif text-[#F0A323] leading-none text-[64px]">Original and Traditional Recipes</h3>
+                <h3 class="mt-2 dm-serif text-[#F0A323] leading-none text-2xl lg:text-[64px]">Original and Traditional Recipes</h3>
                 <p class="text-2xl mt-2">What’s your craving today?</p>
                 <Button class="mt-4 font-bold text-lg px-8 flex gap-2 items-center mx-auto">
                     <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
