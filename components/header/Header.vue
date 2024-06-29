@@ -12,15 +12,16 @@
             </a>
             <HeaderLogo :dense="dense"/>
         </div>
-        <HeaderMainMenu/>
-        <HeaderRightSection class="w-[400px]" />
+        <HeaderMainMenu :open_search="open_search" @closeSearch="open_search = false"/>
+        <HeaderRightSection class="w-[400px]" @openSearch="open_search = true"/>
     </div>
 </template>
 
 <script>
 export default {
     props: {
-        dense: false
+        dense: false,
+        open_search: false
     }
 }
 </script>
