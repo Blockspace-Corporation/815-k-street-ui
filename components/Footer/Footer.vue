@@ -3,7 +3,7 @@
         <div class="container mx-auto px-4 py-12">
             <div class="flex-1 flex flex-col md:flex-row items-start gap-8 md:gap-16">
                 <img src="~/static/logo-greyscale.webp" class="grayscale h-[83px]">
-                <div class="flex flex-col gap-4 items-center">
+                <div class="flex md:flex-col gap-4 items-center">
                     <a href="#">
                         <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M35.5 18C35.5 25.75 29.8125 32.1875 22.375 33.3125V22.5H26L26.6875 18H22.375V15.125C22.375 13.875 23 12.6875 24.9375 12.6875H26.875V8.875C26.875 8.875 25.125 8.5625 23.375 8.5625C19.875 8.5625 17.5625 10.75 17.5625 14.625V18H13.625V22.5H17.5625V33.3125C10.125 32.1875 4.5 25.75 4.5 18C4.5 9.4375 11.4375 2.5 20 2.5C28.5625 2.5 35.5 9.4375 35.5 18Z" fill="white"/>
@@ -27,67 +27,69 @@
                         </svg>
                     </a>
                 </div>
-                <div class="flex flex-col gap-4 text-white text-xs">
-                    <h5 class="font-bold uppercase">Where to find us</h5>
-                    <ul class="flex flex-col gap-2 max-w-60">
-                        <li class="flex items-start gap-2">
-                            <svg class="w-[18px]" width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M11.25 5.21875C11.5938 4.5625 11.75 4.0625 11.75 3.75C11.75 2.25 10.5 1 9 1C7.46875 1 6.25 2.25 6.25 3.75C6.25 4.0625 6.375 4.5625 6.71875 5.21875C7.03125 5.84375 7.46875 6.5 7.90625 7.125C8.28125 7.625 8.65625 8.125 8.96875 8.5C9.28125 8.125 9.6875 7.625 10.0625 7.125C10.5 6.5 10.9375 5.84375 11.25 5.21875ZM9.65625 9.25C9.25 9.71875 9 10 9 10C9 10 8.71875 9.71875 8.3125 9.25C7.25 7.96875 5.25 5.375 5.25 3.75C5.25 1.6875 6.90625 0 9 0C11.0625 0 12.75 1.6875 12.75 3.75C12.75 5.375 10.7188 7.96875 9.65625 9.25ZM12.5312 7.0625H12.5C12.6875 6.75 12.875 6.4375 13.0312 6.125C13.0938 6 13.1562 5.875 13.2188 5.75L17 4.375L18 4V5.0625V14L12.5 16L5.5 14L1 15.6562L0 16V14.9375V6L4.3125 4.4375C4.375 4.75 4.46875 5.09375 4.59375 5.40625L1 6.71875V14.5938L5 13.125V9H6V13.125L12 14.8438V9H13V14.7812L17 13.3125V5.4375L12.8125 6.96875L12.5312 7.0625ZM9 2.75C9.40625 2.75 9.75 3.09375 9.75 3.5C9.75 3.9375 9.40625 4.25 9 4.25C8.5625 4.25 8.25 3.9375 8.25 3.5C8.25 3.09375 8.5625 2.75 9 2.75Z" fill="white"/>
-                            </svg>
-                            <p class="w-full">Cebu I.T. Park, The Walk, A. Abad St., Lahug, Cebu City, Philippines</p>
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M13 1H3V6.96875L2.40625 6.5C2.28125 6.375 2.125 6.28125 2 6.21875V1V0H3H13H14V1V6.21875C13.8438 6.28125 13.6875 6.375 13.5625 6.5L13 6.96875V1ZM8 12.9688L7.40625 12.5938L1 8.15625V15H15V8.15625L8.5625 12.5938L8 12.9688ZM15 6.9375L16 6.25V7.46875V15V16H15H1H0V15V7.46875V6.25L1 6.9375L8 11.75L15 6.9375ZM5.5 4H10.5H11V5H10.5H5.5H5V4H5.5ZM5.5 7H10.5H11V8H10.5H5.5H5V7H5.5Z" fill="white"/>
-                            </svg>
-                            <p>info@hwanggeumseong.com</p>
-                        </li>
-                        <li>
-                            <p class="flex items-center gap-2 block border border-red-500 py-2 px-4 w-[170px]">
-                                <svg width="13" height="21" viewBox="0 0 13 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M11.25 1.75H1.25V19.25H11.25V1.75ZM1.25 0.5H11.25H12.5V1.75V19.25V20.5H11.25H1.25H0V19.25V1.75V0.5H1.25ZM8.75 6.75H3.75V9.25H8.75V6.75ZM3.75 5.5H8.75H10V6.75V9.25V10.5H8.75H3.75H2.5V9.25V6.75V5.5H3.75ZM4.0625 12.375V14.25H2.1875V12.375H4.0625ZM2.1875 15.5H4.0625V17.375H2.1875V15.5ZM7.1875 12.375V14.25H5.3125V12.375H7.1875ZM5.3125 15.5H7.1875V17.375H5.3125V15.5ZM10.3125 12.375V14.25H8.4375V12.375H10.3125ZM8.4375 15.5H10.3125V17.375H8.4375V15.5ZM5 3H7.5H8.125V4.25H7.5H5H4.375V3H5Z" fill="white"/>
+                <div class="flex flex-col lg:flex-row items-start gap-8 lg:gap-16">
+                    <div class="flex flex-col gap-4 text-white text-sm">
+                        <h5 class="font-bold uppercase">Where to find us</h5>
+                        <ul class="flex flex-col gap-2 lg:max-w-60">
+                            <li class="flex items-start gap-2">
+                                <svg class="w-[18px]" width="18" height="16" viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M11.25 5.21875C11.5938 4.5625 11.75 4.0625 11.75 3.75C11.75 2.25 10.5 1 9 1C7.46875 1 6.25 2.25 6.25 3.75C6.25 4.0625 6.375 4.5625 6.71875 5.21875C7.03125 5.84375 7.46875 6.5 7.90625 7.125C8.28125 7.625 8.65625 8.125 8.96875 8.5C9.28125 8.125 9.6875 7.625 10.0625 7.125C10.5 6.5 10.9375 5.84375 11.25 5.21875ZM9.65625 9.25C9.25 9.71875 9 10 9 10C9 10 8.71875 9.71875 8.3125 9.25C7.25 7.96875 5.25 5.375 5.25 3.75C5.25 1.6875 6.90625 0 9 0C11.0625 0 12.75 1.6875 12.75 3.75C12.75 5.375 10.7188 7.96875 9.65625 9.25ZM12.5312 7.0625H12.5C12.6875 6.75 12.875 6.4375 13.0312 6.125C13.0938 6 13.1562 5.875 13.2188 5.75L17 4.375L18 4V5.0625V14L12.5 16L5.5 14L1 15.6562L0 16V14.9375V6L4.3125 4.4375C4.375 4.75 4.46875 5.09375 4.59375 5.40625L1 6.71875V14.5938L5 13.125V9H6V13.125L12 14.8438V9H13V14.7812L17 13.3125V5.4375L12.8125 6.96875L12.5312 7.0625ZM9 2.75C9.40625 2.75 9.75 3.09375 9.75 3.5C9.75 3.9375 9.40625 4.25 9 4.25C8.5625 4.25 8.25 3.9375 8.25 3.5C8.25 3.09375 8.5625 2.75 9 2.75Z" fill="white"/>
                                 </svg>
-                                +63 917 117 7392
-                            </p>
-                        </li>
-                    </ul>
-                </div>
-                <div class="flex flex-col gap-4 text-white text-xs">
-                    <h5 class="font-bold uppercase">Business Hours</h5>
-                    <ul class="flex flex-col gap-2">
-                        <li>
-                            Mondays to Saturdays
-                            <div class="flex items-center gap-2 mt-1">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                                <p class="w-full">Cebu I.T. Park, The Walk, A. Abad St., Lahug, Cebu City, Philippines</p>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M13 1H3V6.96875L2.40625 6.5C2.28125 6.375 2.125 6.28125 2 6.21875V1V0H3H13H14V1V6.21875C13.8438 6.28125 13.6875 6.375 13.5625 6.5L13 6.96875V1ZM8 12.9688L7.40625 12.5938L1 8.15625V15H15V8.15625L8.5625 12.5938L8 12.9688ZM15 6.9375L16 6.25V7.46875V15V16H15H1H0V15V7.46875V6.25L1 6.9375L8 11.75L15 6.9375ZM5.5 4H10.5H11V5H10.5H5.5H5V4H5.5ZM5.5 7H10.5H11V8H10.5H5.5H5V7H5.5Z" fill="white"/>
                                 </svg>
-                                9.30 AM - 3.00 AM
-                            </div>
-                        </li>
-                        <li>
-                            Sundays & Public Holidays
-                            <div class="flex items-center gap-2 mt-1">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                                </svg>
-                                8.30 AM - 12:00 MN
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="flex flex-col gap-4 text-white text-xs">
-                    <h5 class="font-bold uppercase">Quick Links</h5>
-                    <ul class="flex flex-col gap-1">
-                        <li v-for="(link, k) in links" :key="`footer-link-${k}`">
-                            <a :href="link.url">{{ link.label }}</a>
-                        </li>
-                    </ul>
+                                <p>info@hwanggeumseong.com</p>
+                            </li>
+                            <li>
+                                <p class="flex items-center gap-2 block border border-red-500 py-2 px-4 w-[180px]">
+                                    <svg width="13" height="21" viewBox="0 0 13 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M11.25 1.75H1.25V19.25H11.25V1.75ZM1.25 0.5H11.25H12.5V1.75V19.25V20.5H11.25H1.25H0V19.25V1.75V0.5H1.25ZM8.75 6.75H3.75V9.25H8.75V6.75ZM3.75 5.5H8.75H10V6.75V9.25V10.5H8.75H3.75H2.5V9.25V6.75V5.5H3.75ZM4.0625 12.375V14.25H2.1875V12.375H4.0625ZM2.1875 15.5H4.0625V17.375H2.1875V15.5ZM7.1875 12.375V14.25H5.3125V12.375H7.1875ZM5.3125 15.5H7.1875V17.375H5.3125V15.5ZM10.3125 12.375V14.25H8.4375V12.375H10.3125ZM8.4375 15.5H10.3125V17.375H8.4375V15.5ZM5 3H7.5H8.125V4.25H7.5H5H4.375V3H5Z" fill="white"/>
+                                    </svg>
+                                    +63 917 117 7392
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="flex flex-col gap-4 text-white text-sm">
+                        <h5 class="font-bold uppercase">Business Hours</h5>
+                        <ul class="flex flex-col gap-2">
+                            <li>
+                                Mondays to Saturdays
+                                <div class="flex items-center gap-2 mt-1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                                    </svg>
+                                    9.30 AM - 3.00 AM
+                                </div>
+                            </li>
+                            <li>
+                                Sundays & Public Holidays
+                                <div class="flex items-center gap-2 mt-1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-4">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                                    </svg>
+                                    8.30 AM - 12:00 MN
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="flex flex-col gap-4 text-white text-sm">
+                        <h5 class="font-bold uppercase">Quick Links</h5>
+                        <ul class="flex flex-col gap-1">
+                            <li v-for="(link, k) in links" :key="`footer-link-${k}`">
+                                <a :href="link.url">{{ link.label }}</a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-            <div class="text-center text-white text-xs mt-8">
+            <div class="text-center text-white text-sm mt-8">
                 Copyright © 2024  Hwang Geum Seong. Last updated June 14, 2024
             </div>
-            <img src="~/static/footer-img.webp" alt="" class="absolute w-[230px] right-0 bottom-0">
+            <img src="~/static/footer-img.webp" alt="" class="absolute w-[230px] hidden xl:block right-0 bottom-0">
         </div>
     </div>
 </template>
