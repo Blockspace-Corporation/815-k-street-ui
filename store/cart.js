@@ -26,7 +26,6 @@ export const mutations = {
 
 export const actions = {
   async storeCartObject(context, data) {
-    console.log(data)
     context.commit('setCart', data)
   },
 }
