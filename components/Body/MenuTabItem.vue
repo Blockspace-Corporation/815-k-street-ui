@@ -1,6 +1,6 @@
 <template>
     <button
-        class="text-white bg-primary hover:bg-secondary p-3 uppercase"
+        class="text-white bg-[#15191F] hover:bg-[#15191f99] p-3"
         :class="{
             'bg-secondary-hover': active
         }"
