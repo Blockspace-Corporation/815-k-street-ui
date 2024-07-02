@@ -24,33 +24,33 @@
                             <a href="mailto:info@hwanggeumseong.com" class="underline">info@hwanggeumseong.com</a> or call +63 917 117 7392
                         </p>
                     </div>
-                    <form class="flex-1 text-left text-sm flex flex-col gap-3 justify-start items-start">
+                    <form @submit.prevent="handleSubmit" class="flex-1 text-left text-sm flex flex-col gap-3 justify-start items-start">
                         <h4 class="uppercase font-bold">Have a question for us? Ask away</h4>
                         <div class="flex gap-4 w-full">
                             <div class="flex flex-col gap-2 flex-1">
                                 <label class="text-xs">First Name <span class="text-[red]">*</span></label>
-                                <input type="text" class="py-3 px-6 text-[black] w-full" placeholder="First Name">
+                                <input type="text" v-model="form.first_name" class="py-3 px-6 text-[black] w-full" placeholder="First Name">
                             </div>
                             <div class="flex flex-col gap-2 flex-1">
                                 <label class="text-xs">Last Name <span class="text-[red]">*</span></label>
-                                <input type="text" class="py-3 px-6 text-[black] w-full" placeholder="Last Name">
+                                <input type="text" v-model="form.last_name" class="py-3 px-6 text-[black] w-full" placeholder="Last Name">
                             </div>
                         </div>
                         <div class="flex flex-col gap-2 flex-1 w-full">
                             <label class="text-xs">Reasons for Inquiry</label>
-                            <select name="" class="py-3 px-6 text-[black] w-full">
+                            <select v-model="form.reason" class="py-3 px-6 text-[black] w-full">
                                 <option>General Inquiry</option>
                             </select>
                         </div>
                         <div class="flex flex-col gap-2 flex-1 w-full">
                             <label class="text-xs">Email Address or Phone Number <span class="text-[red]">*</span></label>
-                            <input type="text" class="py-3 px-6 text-[black] w-full" placeholder="Email Address or Phone Number">
+                            <input type="text" v-model="form.email_or_phone" class="py-3 px-6 text-[black] w-full" placeholder="Email Address or Phone Number">
                         </div>
                         <div class="flex flex-col gap-2 flex-1 w-full">
                             <label class="text-xs">Message</label>
-                            <textarea class="py-3 px-6 text-[black] w-full" cols="30" rows="8" placeholder="Write a message ..."></textarea>
+                            <textarea v-model="form.message" class="py-3 px-6 text-[black] w-full" cols="30" rows="8" placeholder="Write a message ..."></textarea>
                         </div>
-                        <Button class="font-bold px-10 mt-2 w-full md:w-auto">Send</Button>
+                        <Button submit class="font-bold px-10 mt-2 w-full md:w-auto">Send</Button>
                     </form>
                 </div>
             </div>
@@ -58,3 +58,25 @@
         <img src="~/static/store-map.webp" class="w-full">
     </div>
 </template>
+
+<script>
+export default {
+    data() {
+        return {
+            form: {
+                first_name: '',
+                last_name: '',
+                reason: 'General Inquiry',
+                email_or_phone: '',
+                message: ''
+            }
+        }
+    },
+    methods: {
+        async handleSubmit() {
+            // const reponse = await this.$axios.post('/contact', this.form)
+            // console.log(reponse)
+        }
+    }
+}
+</script>
