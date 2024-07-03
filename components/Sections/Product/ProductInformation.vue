@@ -1,11 +1,11 @@
 <template>
-    <div v-if="data">
+    <div>
         <div class="flex flex-col gap-2 items-start justify-start text-left text-grey">
-            <h1 class="text-2xl font-bold">{{ data.name }}</h1>
-            <p>{{ data.summary }}</p>
+            <h1 class="text-2xl font-bold">{{ name }}</h1>
+            <p>{{ summary }}</p>
             <StarRating :value="4" class="text-xl my-4"/>
             <div class="text-3xl font-bold flex items-start gap-2 text-[#F4B618]">
-                {{ data.price }}
+                {{ price }}
                 <span class="text-xs">PHP</span>
             </div>
             <div class="my-4 flex flex-col gap-2">
@@ -17,9 +17,12 @@
                         <button @click="quantity++">+</button>
                     </div>
                 </div>
-                <Button class="rounded">Add to Cart</Button>
+                <Button class="rounded" @click="$router.push({ name: 'cart' })">Add to Cart</Button>
             </div>
-            <div class="opacity-70">Preparation time : {{ data.preparation_time }}</div>
+            <div class="opacity-70">Preparation time : {{ preparation_time }}</div>
+            <!-- <div class="opacity-70">Preparation time : {{ data.preparation_time }}</div> -->
+
+
         </div>
     </div>
 </template>
@@ -30,7 +33,12 @@ import { mapGetters } from 'vuex'
 export default {
     data() {
         return {
-            quantity: 0
+          isOpen: false,
+          preparation_time: '20 Mins',
+          price: 100,
+          name:'',
+          summary:'',
+          quantity: 0
         }
     },
     computed: {
