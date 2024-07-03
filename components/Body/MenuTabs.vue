@@ -1,5 +1,6 @@
 <template>
     <ul class="flex items-center justify-center gap-1">
+        Filter:
         <li>
             <BodyMenuTabItem :active="!$route.query.category" @click="getProducts(null)">All</BodyMenuTabItem>
         </li>
