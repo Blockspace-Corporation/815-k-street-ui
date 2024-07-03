@@ -46,11 +46,12 @@
       </form>
       <div v-else>
         <ul>
-          <li v-for="(item, index) in delivery" :key="index" class="mb-4">
-            <div class="bg-gray-100 rounded shadow-md p-4 flex flex-wrap">
+          <li v-for="(item, index) in addresses" :key="index" class="mb-4">
+            <div class="bg-gray-100 rounded shadow-md p-4 flex flex-wrap"
+            :class="[selectedDelivery === item.id? 'border border-red-500' : '']">
               <div class="w-full  p-4">
                   <label>
-                    <input type="radio" :id="`delivery-${index}`" :value="item" v-model="selectedDelivery"  class="mr-2">
+                    <input type="radio" :id="`delivery-${index}`" :value="item.id" v-model="selectedDelivery"  class="mr-2">
                     <span class="text-lg font-bold" style="display: inline-block;">{{ item.title }}</span>
                     <p class="text-gray-600">{{ item.name }} </p>
                     <p class="text-gray-600">{{item.address}}  {{item.street_address}} {{item.city}} {{item.state_province}} {{ item.postal_code }}</p>
@@ -72,31 +73,7 @@ export default {
   data() {
     return {
       selectedDelivery: null,
-      delivery: [
-        {
-          id: 1,
-          title:'Home Address',
-          name: 'Juan Dela Cruz',
-          address: '',
-          street_address:'',
-          company:'NA',
-          city: 'Cebu CUity',
-          state_province: 'Cebu',
-          postal_code: '6000'
-
-        },
-        {
-          id: 2,
-          title:'Work Address Address',
-          name: 'Juan Dela Cruz',
-          address: '',
-          street_address:'',
-          company:'NA',
-          city: 'Cebu CUity',
-          state_province: 'Cebu',
-          postal_code: '6000'
-        }
-      ],
+      addresses: [],
       billing: {
         title:'',
         name: '',
@@ -109,6 +86,18 @@ export default {
       },
     }
   },
+
+  async fetch() {
+    let customer_id= this.user.customer.id;
+    const response = await this.$axios.get(`/customer/address`,{
+      params: {
+        customer_id,
+      }
+    })
+    if (response.status == 200) {
+      this.addresses = response.data.addresses
+    }
+  },
   computed: {
     ...mapState('auth', {
       user: state => state.user
@@ -116,7 +105,6 @@ export default {
   },
   methods: {
     submitOrder() {
-      // Implement order submission logic here
       console.log("Order submitted!");
       this.$emit('next-step', 3);
     }
