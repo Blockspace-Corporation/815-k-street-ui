@@ -1,10 +1,10 @@
 <template>
     <div class="p-2">
-        <nuxt-link :to="`product/${slug}`" class="flex flex-col gap-2 items-center bg-gradient-to-b from-[#15191F00] via-[#15191F] to-[#15191F] hover:to-[#15191F00] px-2 py-6 ease-in-out duration-500">
+        <nuxt-link :to="`product/${slug}`" class="flex flex-col gap-2 items-center bg-gradient-to-b from-[#15191F00] via-[#15191F] to-[#15191F] hover:to-[#15191F00] px-4 py-8 ease-in-out duration-500">
             <img :src="img.filename" alt="">
             <span class="font-bold text-lg dm-serif">{{ name }}</span>
-            <span class="font-bold text-xl">마라 전골</span>
-            <p class="text-sm text-center">Spicy beef stew with veggies in aromatic broth</p>
+            <span class="font-bold text-xl -mt-2">{{ korean }}</span>
+            <p class="text-sm text-center">{{ summary}}</p>
             <span class="text-[#F0A323] dm-serif text-xl">
                 ₱ {{ price.toFixed(2) }}
             </span>
@@ -31,9 +31,13 @@ export default {
             default: '',
             type: String
         },
-        rating: {
-            default: 0,
-            type: Number
+        korean: {
+            default: '',
+            type: String
+        },
+        summary: {
+            default: '',
+            type: String
         },
         price: {
             default: '',

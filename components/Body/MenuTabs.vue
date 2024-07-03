@@ -2,7 +2,7 @@
     <ul class="flex items-center justify-center gap-1">
         Filter:
         <li>
-            <BodyMenuTabItem :active="!$route.query.category" @click="getProducts(null)">All</BodyMenuTabItem>
+            <BodyMenuTabItem :active="!$route.query.category" @click="getProducts(null); setCategory(null)">All</BodyMenuTabItem>
         </li>
         <template v-if="categories && categories.length" >
             <li v-for="(category, k) in categories" :key="`categogry-${k}`">
@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex'
+import { mapGetters, mapActions, mapMutations } from 'vuex'
 export default {
     computed: {
         ...mapGetters({
@@ -30,9 +30,14 @@ export default {
         ...mapActions({
             filterProducts: 'product/fetchList'
         }),
+        ...mapMutations({
+            setCategory: 'category/setCategory'
+        }),
         getProducts(category) {
             
             if (category) {
+                this.setCategory(category)
+
                 this.filterProducts({
                     category: category.id
                 });

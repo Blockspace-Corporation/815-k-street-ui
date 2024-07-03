@@ -1,22 +1,29 @@
 <template>
-    <div v-if="products && products.length">
-        <div class="flex flex-wrap mb-6">
-            <BodyMenuItem
-                class="w-3/12"
-                v-for="(product, k) in products" :key="`menu-item-${k}`"
-                :images="product.images"
-                :name="product.name"
-                :price="product.price"
-                :rating="product.rating"
-                :slug="product.id"
-            />
+    <div>
+        <div v-if="category?.id" class="mt-8 text-center flex flex-col items-center gap-4">
+            <h3 class="border py-2 px-4 inline-block dm-serif uppercase">{{ category.name }}</h3>
+            <h4 class="text-2xl">{{ category.korean_name }}</h4>
         </div>
-        <div class="flex justify-end items-center">
-            <Pagination :links="pagination" store_module="product" />
+        <div v-if="products && products.length">
+            <div class="flex flex-wrap mb-6">
+                <BodyMenuItem
+                    class="w-3/12"
+                    v-for="(product, k) in products" :key="`menu-item-${k}`"
+                    :images="product.images"
+                    :name="product.name"
+                    :korean="product.korean_name"
+                    :price="product.price"
+                    :summary="product.summary"
+                    :slug="product.id"
+                />
+            </div>
+            <div class="flex justify-end items-center">
+                <Pagination :links="pagination" store_module="product" />
+            </div>
         </div>
-    </div>
-    <div v-else class="flex justify-center h-40 items-center">
-        <p>No result on this category.</p>
+        <div v-else class="flex justify-center h-40 items-center">
+            <p>No result on this category.</p>
+        </div>
     </div>
 </template>
 
@@ -29,7 +36,8 @@ export default {
         ...mapGetters({
             products: 'product/DATA',
             total_items: 'product/total',
-            pagination: 'product/pagination'
+            pagination: 'product/pagination',
+            category: 'category/SINGLE'
         })
     },
 }
