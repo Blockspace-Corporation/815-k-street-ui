@@ -7,7 +7,7 @@
         <div v-if="products && products.length">
             <div class="flex flex-wrap mb-6">
                 <BodyMenuItem
-                    class="w-3/12"
+                    class="w-1/2 md:w-4/12 lg:w-3/12 xl:w-[20%]"
                     v-for="(product, k) in products" :key="`menu-item-${k}`"
                     :images="product.images"
                     :name="product.name"
