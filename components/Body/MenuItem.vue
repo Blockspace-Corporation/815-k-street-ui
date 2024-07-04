@@ -1,20 +1,22 @@
 <template>
     <div class="p-2">
-        <nuxt-link :to="`product/${slug}`" class="flex flex-col gap-2 items-center bg-gradient-to-b from-[#15191F00] via-[#15191F] to-[#15191F] hover:to-[#15191F00] px-2 py-6 ease-in-out duration-500">
-            <img :src="img.filename" alt="">
-            <span class="font-bold text-lg dm-serif">{{ name }}</span>
-            <span class="font-bold text-xl">마라 전골</span>
-            <p class="text-sm text-center">Spicy beef stew with veggies in aromatic broth</p>
-            <span class="text-[#F0A323] dm-serif text-xl">
-                ₱ {{ price.toFixed(2) }}
-            </span>
-            <div class="flex gap-2 items-center w-full">
-                <div class="flex gap-2 w-1/2 h-full items-center bg-white p-3 text-[black] flex-1">
+        <nuxt-link :to="`product/${slug}`" class="flex flex-col gap-2 items-center bg-gradient-to-b from-[#15191F00] via-[#15191F] to-[#15191F] hover:to-[#15191F00] px-4 py-8 ease-in-out duration-500 h-full">
+            <img :src="image_dir + img.filename" alt="">
+            <div class="flex-1 flex flex-col gap-2 items-center">
+                <span class="font-bold text-lg dm-serif">{{ name }}</span>
+                <span class="font-bold text-xl -mt-2">{{ korean }}</span>
+                <p class="text-sm text-center">{{ summary}}</p>
+                <span class="text-[#F0A323] dm-serif text-xl">
+                    ₱ {{ price.toFixed(2) }}
+                </span>
+            </div>
+            <div class="flex gap-2 items-center w-full mt-3">
+                <div class="flex gap-2 w-1/2 h-10 items-center bg-white p-3 text-[black] flex-1">
                     <button type="button"  @click.prevent.stop="qty--">-</button>
                     <input type="text" class="flex-1 text-center w-full" v-model="qty">
                     <button type="button" @click.prevent.stop="qty++">+</button>
                 </div>
-                <Button class="flex-1 w-1/2">Add to Cart</Button>
+                <Button class="flex-1 w-1/2 text-xs h-10">Add to Cart</Button>
             </div>
         </nuxt-link>
     </div>
@@ -31,9 +33,13 @@ export default {
             default: '',
             type: String
         },
-        rating: {
-            default: 0,
-            type: Number
+        korean: {
+            default: '',
+            type: String
+        },
+        summary: {
+            default: '',
+            type: String
         },
         price: {
             default: '',
@@ -46,7 +52,8 @@ export default {
     },
     data() {
         return {
-            qty: 1
+            qty: 1,
+            image_dir: process.env.STORAGE_URL
         }
     },
     computed: {
