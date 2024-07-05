@@ -10,8 +10,8 @@
                     <div class="mt-8 md:mt-0 text-sm flex flex-col gap-3 justify-start items-start text-left flex-1">
                         <h4 class="uppercase font-bold">General Inquiries:</h4>
                         <p>
-                            Email: 
-                            <a href="mailto:info@hwanggeumseong.com" class="underline">info@hwanggeumseong.com</a> 
+                            Email:
+                            <a href="mailto:info@hwanggeumseong.com" class="underline">info@hwanggeumseong.com</a>
                         </p>
                         <p>Phone: +63 917 117 7392</p>
                         <p>
@@ -19,7 +19,7 @@
                         </p>
                         <h4 class="uppercase font-bold mt-8">General Inquiries:</h4>
                         <p>
-                            For assistance with others, shipping, or product inquiries,<br /> 
+                            For assistance with others, shipping, or product inquiries,<br />
                             contact customer support at <br />
                             <a href="mailto:info@hwanggeumseong.com" class="underline">info@hwanggeumseong.com</a> or call +63 917 117 7392
                         </p>
@@ -55,7 +55,14 @@
                 </div>
             </div>
         </div>
-        <img src="~/static/store-map.webp" class="w-full">
+        <!-- <img src="~/static/store-map.webp" class="w-full"> -->
+        <div class="w-full mt-0">
+          <iframe class="w-full"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1650.3279517025646!2d123.90591218082305!3d10.32879847470701!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33a9992034d7a837%3A0xa6a28c8d6c725288!2sHwang%20Geum%20Seong!5e0!3m2!1sen!2sph!4v1719994337154!5m2!1sen!2sph"
+            height="450" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
     </div>
 </template>
 

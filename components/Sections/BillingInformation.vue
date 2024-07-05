@@ -86,15 +86,7 @@
             <div class="w-full">
               <div class="mb-4">
                 <label class="block text-sm font-bold mb-2" for="email">Name</label>
-                <div class="w-full grid grid-cols-2 gap-4">
-                  <input readonly class="shadow appearance-none border rounded w-full py-2 px-3 text-white-700  leading-tight focus:outline-none focus:shadow-outline" id="year" type="text" v-model="name" placeholder="First Name">
-                  <!-- <div>
-                    <input readonly class="shadow appearance-none border rounded w-full py-2 px-3 text-white-700  leading-tight focus:outline-none focus:shadow-outline" id="year" type="text" v-model="user.first_name" placeholder="First Name">
-                  </div>
-                  <div>
-                    <input readonly class="shadow appearance-none border rounded w-full py-2 px-3 text-white-700  leading-tight focus:outline-none focus:shadow-outline" id="month" type="text" v-model="user.last_name" placeholder="MM">
-                  </div> -->
-                </div>
+                <input readonly class="shadow appearance-none border rounded w-full py-2 px-3 text-white-700  leading-tight focus:outline-none focus:shadow-outline" id="year" type="text" v-model="name" placeholder="First Name">
               </div>
               <div class="mb-4">
                 <label class="block text-sm font-bold mb-2" for="phone">Email</label>
