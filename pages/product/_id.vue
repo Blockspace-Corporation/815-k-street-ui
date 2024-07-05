@@ -19,7 +19,7 @@ export default {
     let url = '/products/' + parseInt(this.$route.params.id) || 0
 
     const response = await this.$axios.get(url)
-    
+
     if (response.status == 200) {
       this.$store.commit('product/setProduct', response.data)
     }

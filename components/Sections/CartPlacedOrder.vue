@@ -107,26 +107,28 @@ export default {
     }
   },
   async fetch() {
-    let customer_id= this.user.customer.id;
-    console.log(customer_id)
-    // const response = await this.$axios.get(`/customer/cart?search_key=${this.search_key}`)
-    const response = await this.$axios.get('/customer/cart', {
-      params: {
-        customer_id,
-        per_page: 10
-      }
-    })
-    if (response.status == 200) {
-      this.carts = response.data.data[0].items
-      console.log(response.data.data[0].items)
-
-      const images = []
-      this.carts.forEach(item => {
-        item.product.images.forEach(image => {
-          images.push(image.filename) // or image.url, depending on your image model
-        })
+    if(this.user){
+      let customer_id = this.user.customer.id;
+      // const response = await this.$axios.get(`/customer/cart?search_key=${this.search_key}`)
+      const response = await this.$axios.get('/cart', {
+        params: {
+          customer_id,
+          per_page: 10
+        }
       })
-      console.log(images)
+      if (response.status == 200) {
+        this.carts = response.data.data[0].items
+        console.log(response.data.data[0].items)
+
+        const images = []
+        this.carts.forEach(item => {
+          item.product.images.forEach(image => {
+            images.push(image.filename)
+          })
+        })
+      }
+    }else{
+      this.carts = this.temporary_cart
     }
   },
   computed: {
@@ -135,6 +137,7 @@ export default {
     }),
     ...mapGetters({
         data: 'cart/DATA',
+        temporary_cart: 'cart/CART',
     }),
     subtotal() {
       return this.carts && this.carts.length > 0
@@ -183,15 +186,11 @@ export default {
       }
     },
     async checkout() {
-      // Implement checkout logic here
       this.form.sub_total = this.subtotal;
       this.form.shipping = 0;
       this.form.discount = this.discount;
       this.form.tax = this.tax;
       this.form.total = this.total;
-      const setData = await this.set(this.form);
-      // console.log("Checkout clicked!")
-      // this.$router.push('/checkout')
       try {
         await this.set(this.form);
         console.log("Checkout clicked!")

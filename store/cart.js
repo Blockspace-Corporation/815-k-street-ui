@@ -1,6 +1,7 @@
 export const state = () => ({
   data: [],
-  single: null
+  single: null,
+  temporary_cart: []
 })
 
 export const getters = {
@@ -12,6 +13,9 @@ export const getters = {
   },
   total(state) {
       return state.data.total
+  },
+  CART(state){
+    return state.temporary_cart
   }
 }
 
@@ -22,9 +26,16 @@ export const mutations = {
   setCart(state, customerData) {
     state.single = customerData;
   },
+  setTemporaryCart(state, temporaryCart){
+    state.temporary_cart.push(temporaryCart);
+  }
 }
 
 export const actions = {
+  async storeTemporaryCartObject(context,data){
+    context.commit('setTemporaryCart', data)
+  },
+
   async storeCartObject(context, data) {
     context.commit('setCart', data)
   },

@@ -36,7 +36,7 @@ export const mutations = {
 
 export const actions = {
     async fetchList(context, payload = null) {
-        let url = `/products`
+        let url = `customer/products`
 
         if (payload) {
             const str = []

@@ -48,7 +48,7 @@ export default {
   props: {
     params: {
       type: Object,
-      required: true
+      // required: true
     }
   },
   data() {
@@ -62,7 +62,7 @@ export default {
     }),
     name() {
       let _name='';
-      _name = this.params.first_name +' '+ this.params.last_name;
+      _name = this.params ? this.params.first_name +' '+ this.params.last_name : this.customer_data ? this.customer_data.first_name +' '+ this.customer_data.last_name : '';
       return _name;
     },
     email_address(){

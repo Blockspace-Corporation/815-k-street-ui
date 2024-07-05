@@ -8,19 +8,27 @@
           <div class="w-full">
             <div class="mb-4">
               <label class="block text-sm font-bold mb-2" for="first_name">First Name</label>
-              <input class="shadow appearance-none border rounded w-full py-2 px-3 text-white-700  leading-tight focus:outline-none focus:shadow-outline" id="first_name" type="text" v-model="billing.first_name">
+              <input class="shadow appearance-none border rounded w-full py-2 px-3 text-white-700  leading-tight focus:outline-none focus:shadow-outline"
+                id="first_name" type="text" v-model="billing.first_name" required
+                :class="{ 'border border-red-500': !billing.first_name }">
             </div>
             <div class="mb-4">
               <label class="block text-sm font-bold mb-2" for="last_name">Last Name</label>
-              <input class="shadow appearance-none border rounded w-full py-2 px-3 text-white-700  leading-tight focus:outline-none focus:shadow-outline" id="namlast_namee" type="text" v-model="billing.last_name">
+              <input class="shadow appearance-none border rounded w-full py-2 px-3 text-white-700  leading-tight focus:outline-none focus:shadow-outline"
+                id="namlast_namee" type="text" v-model="billing.last_name" required
+                :class="{ 'border border-red-500': !billing.last_name }">
             </div>
             <div class="mb-4">
               <label class="block text-sm font-bold mb-2" for="email">Email</label>
-              <input class="shadow appearance-none border rounded w-full py-2 px-3 text-white-700  leading-tight focus:outline-none focus:shadow-outline" id="email" type="email" v-model="billing.email">
+              <input class="shadow appearance-none border rounded w-full py-2 px-3 text-white-700  leading-tight focus:outline-none focus:shadow-outline"
+                id="email" type="email" v-model="billing.email" required
+                :class="{ 'border border-red-500': !billing.email }">
             </div>
             <div class="mb-4">
               <label class="block text-sm font-bold mb-2" for="phone">Phone</label>
-              <input class="shadow appearance-none border rounded w-full py-2 px-3 text-white-700  leading-tight focus:outline-none focus:shadow-outline" id="phone" type="text" v-model="billing.phone">
+              <input class="shadow appearance-none border rounded w-full py-2 px-3 text-white-700  leading-tight focus:outline-none focus:shadow-outline"
+                id="phone" type="text" v-model="billing.phone" required
+                :class="{ 'border border-red-500': !billing.phone }">
             </div>
           </div>
         </div>
@@ -38,35 +46,66 @@
           <div class="w-full">
             <div class="mb-4">
               <label class="block text-sm font-bold mb-2" for="first_name">First Name</label>
-              <input class="shadow appearance-none border rounded w-full py-2 px-3 text-white-700  leading-tight focus:outline-none focus:shadow-outline" id="first_name" type="text" v-model="registration.first_name">
+              <input class="shadow appearance-none border rounded w-full py-2 px-3 text-white-700  leading-tight focus:outline-none focus:shadow-outline"
+                id="first_name" type="text" v-model="registration.first_name" required
+                :class="{ 'border border-red-500': !registration.first_name }">
             </div>
             <div class="mb-4">
               <label class="block text-sm font-bold mb-2" for="last_name">Last Name</label>
-              <input class="shadow appearance-none border rounded w-full py-2 px-3 text-white-700  leading-tight focus:outline-none focus:shadow-outline" id="namlast_namee" type="text" v-model="registration.last_name">
+              <input class="shadow appearance-none border rounded w-full py-2 px-3 text-white-700  leading-tight focus:outline-none focus:shadow-outline"
+                id="namlast_namee" type="text" v-model="registration.last_name" required
+                :class="{ 'border border-red-500': !registration.last_name }">
             </div>
             <div class="mb-4">
               <label class="block text-sm font-bold mb-2" for="email">Email</label>
-              <input class="shadow appearance-none border rounded w-full py-2 px-3 text-white-700  leading-tight focus:outline-none focus:shadow-outline" id="email" type="email" v-model="registration.email">
+              <input class="shadow appearance-none border rounded w-full py-2 px-3 text-white-700  leading-tight focus:outline-none focus:shadow-outline"
+                id="email" type="email" v-model="registration.email" required
+                :class="{ 'border border-red-500': !registration.email }">
             </div>
             <div class="mb-4">
               <label class="block text-sm font-bold mb-2" for="phone">Phone</label>
-              <input class="shadow appearance-none border rounded w-full py-2 px-3 text-white-700  leading-tight focus:outline-none focus:shadow-outline" id="phone" type="text" v-model="registration.phone">
+              <input class="shadow appearance-none border rounded w-full py-2 px-3 text-white-700  leading-tight focus:outline-none focus:shadow-outline"
+                id="phone" type="text" v-model="registration.phone" required
+                :class="{ 'border border-red-500': !registration.phone }">
             </div>
             <div class="mb-4">
               <label class="block text-sm font-bold mb-2" for="phone">Password</label>
-              <input class="shadow appearance-none border rounded w-full py-2 px-3 text-white-700  leading-tight focus:outline-none focus:shadow-outline" id="phone" type="text" v-model="registration.password">
+              <input class="shadow appearance-none border rounded w-full py-2 px-3 text-white-700  leading-tight focus:outline-none focus:shadow-outline"
+                id="phone" type="text" v-model="registration.password" required
+                :class="{ 'border border-red-500': !registration.password }">
+            </div>
+            <div class="mb-4">
+              <label class="block text-sm font-bold mb-2" for="phone">Confirm Password</label>
+              <input class="shadow appearance-none border rounded w-full py-2 px-3 text-white-700  leading-tight focus:outline-none focus:shadow-outline"
+                id="phone" type="text" v-model="registration.confirmPassword" required
+                :class="{ 'border border-red-500': !registration.confirmPassword }">
             </div>
             <div class="mb-4">
               <label class="block text-sm font-bold mb-2" for="phone">Birthday</label>
               <div class="w-full grid grid-cols-3 gap-4">
                 <div>
-                  <input class="shadow appearance-none border rounded w-full py-2 px-3 text-white-700  leading-tight focus:outline-none focus:shadow-outline" id="year" type="text" v-model="registration.password" placeholder="YYYY">
+                  <select class="shadow appearance-none border rounded w-full py-2 px-3 text-white-700  leading-tight focus:outline-none focus:shadow-outline"
+                  id="year" v-model="registration.birthdayYear" required
+                  :class="{ 'border border-red-500': !registration.birthdayYear }">
+                    <option value="" disabled selected>Year</option>
+                    <option v-for="year in years" :key="year" :value="year">{{ year }}</option>
+                  </select>
                 </div>
                 <div>
-                  <input class="shadow appearance-none border rounded w-full py-2 px-3 text-white-700  leading-tight focus:outline-none focus:shadow-outline" id="month" type="text" v-model="registration.password" placeholder="MM">
+                  <select class="shadow appearance-none border rounded w-full py-2 px-3 text-white-700  leading-tight focus:outline-none focus:shadow-outline"
+                    id="month" v-model="registration.birthdayMonth" required
+                    :class="{ 'border border-red-500': !registration.birthdayMonth }">
+                    <option value="" disabled selected>Month</option>
+                    <option v-for="month in months" :key="month" :value="month">{{ month }}</option>
+                  </select>
                 </div>
                 <div>
-                  <input class="shadow appearance-none border rounded w-full py-2 px-3 text-white-700  leading-tight focus:outline-none focus:shadow-outline" id="day" type="text" v-model="registration.password" placeholder="DD">
+                  <select class="shadow appearance-none border rounded w-full py-2 px-3 text-white-700  leading-tight focus:outline-none focus:shadow-outline"
+                    id="day" v-model="registration.birthdayDay" required
+                    :class="{ 'border border-red-500': !registration.birthdayDay }">
+                    <option value="" disabled selected>Day</option>
+                    <option v-for="day in days" :key="day" :value="day">{{ day }}</option>
+                  </select>
                 </div>
               </div>
             </div>
@@ -123,9 +162,10 @@
 </template>
 
 <script>
-import { mapState,mapActions } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 export default {
   data() {
+    const currentYear = new Date().getFullYear();
     return {
       create_account: false,
       guest:false,
@@ -142,8 +182,15 @@ export default {
         email: '',
         phone: '',
         password: '',
+        confirmPassword:'',
         birthday: '',
+        birthdayYear:'',
+        birthdayMonth:'',
+        birthdayDay:''
       },
+      years: Array.from({ length: 100 }, (_, i) => currentYear - i),
+      months: Array.from({ length: 12 }, (_, i) => i + 1),
+      days: Array.from({ length: 31 }, (_, i) => i + 1),
       login:{
         email:'',
         password:''
@@ -181,19 +228,23 @@ export default {
     ...mapActions({
       set: 'customer/storeCustomerObject',
     }),
-    submitOrder() {
-      // Implement order submission logic here
-      console.log("Order submitted!")
-      this.continue_as_guest();
-      this.$emit('next-step', 2);
+    async submitOrder() {
+      try{
+        await this.continue_as_guest();
+      }catch{
+
+      }finally{
+        this.$emit('next-step', 2);
+      }
     },
     createAccount(){
-      console.log("create account clicked!")
+      console.log("Create account clicked!")
       this.create_account = true;
       this.sign_in = false;
       this.guest = false;
     },
     orderAsGuest(){
+      console.log("Guest clicked!")
       this.guest = true;
       this.create_account = false;
       this.sign_in = false;
@@ -204,25 +255,33 @@ export default {
       this.guest = false;
       this.create_account = false;
     },
-    register() {
-      // Implement order submission logic here
+    async register() {
       console.log("register submitted!")
-      this.$emit('next-step', 2);
+      this.registration.birthday = `${this.registration.birthdayYear}-${String(this.registration.birthdayMonth).padStart(2, '0')}-${String(this.registration.birthdayDay).padStart(2, '0')}`;
+      try {
+          let response = await this.$axios.post('/register', this.registration);
+          if (response.status == 201) {
+            await this.set(response.data);
+          }
+          this.$toast.success("Customer registration successfull!")
+        // this.$router.push('/checkout')
+      } catch (error) {
+        this.$toast.error("Error during customer registration:", error)
+      }finally{
+        this.$emit('next-step', 2);
+      }
+
     },
     async continue_as_guest() {
-      // Implement checkout logic here
-      // this.billing.first_name = this.first_name;
-      // this.billing.last_name = this.first_name;
-      // this.billing.email = this.email;
-      // this.billing.phone = this.phone;
-      // this.billing.total = this.total;
       try {
-        console.log(this.billing)
-        await this.set(this.billing);
-        console.log("Checkout clicked!")
-        this.$router.push('/checkout')
+          let response = await this.$axios.post('/guest', this.billing);
+          if (response.status == 201) {
+            await this.set(response.data);
+          }
+          this.$toast.success("Guest Customer created successfully")
+        // this.$router.push('/checkout')
       } catch (error) {
-        console.error("Error during checkout:", error)
+        this.$toast.error("Error during adding guest customer:", error)
       }
     }
   }
