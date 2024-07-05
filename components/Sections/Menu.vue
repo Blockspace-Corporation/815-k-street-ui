@@ -31,6 +31,13 @@ export default {
     const response_cat = await this.$axios.get('/categories')
     if (response_cat.status == 200) {
       this.$store.commit('category/setCategories', response_cat.data)
+
+      if (this.$route.query.category) {
+        const category_id = parseInt(this.$route.query.category);
+        const category = response_cat.data.data.find(item => item.id == category_id)
+
+        this.$store.commit('category/setCategory', category)
+      }
     }
   },
 }

@@ -17,8 +17,10 @@
                     :slug="product.id"
                 />
             </div>
-            <div class="flex justify-end items-center">
-                <Pagination :links="pagination" store_module="product" />
+            <div class="flex justify-between items-center mt-20">
+                <div class="flex-1"></div>
+                <div class="text-center flex-1">{{ current_page }} / {{ last_page }}</div>
+                <Pagination :links="pagination" store_module="product" class="flex-1 justify-end" />
             </div>
         </div>
         <div v-else class="flex justify-center h-40 items-center">
@@ -37,6 +39,8 @@ export default {
             products: 'product/DATA',
             total_items: 'product/total',
             pagination: 'product/pagination',
+            current_page: 'product/current_page',
+            last_page: 'product/last_page',
             category: 'category/SINGLE'
         })
     },

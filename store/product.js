@@ -15,6 +15,12 @@ export const getters = {
     },
     pagination(state) {
         return state.data.links
+    },
+    current_page(state) {
+        return state.data.current_page
+    },
+    last_page(state) {
+        return state.data.last_page
     }
 }
 

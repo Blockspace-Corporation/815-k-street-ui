@@ -1,37 +1,52 @@
 <template>
     <ul class="flex gap-2 items-center">
-        <li
-            v-for="(link, k) in links"
-            :key="`pagination-link-${k}`"
-        >
-            <a
-                class="block min-w-0 py-3 px-5 break-words border-0 shadow-soft-xl bg-clip-border"
-                v-if="k == 0"
-                href="#" 
-                @click.prevent="goTo(link.url)"
-                :class="{'bg-secondary': link.active, 'text-white': link.active, 'font-bold': link.active, 'opacity-30': !link.url}"
+        <template v-for="(link, k) in links">
+            <li
+                :key="`pagination-link-${k}`"
+                v-if="(k == 0) || (k == links.length - 1)"
             >
-                <
-            </a>
-            <a
-                class="block min-w-0 py-3 px-5 break-words border-0 shadow-soft-xl bg-clip-border"
-                v-else-if="k == links.length - 1"
-                href="#" 
-                @click.prevent="goTo(link.url)"
-                :class="{'bg-secondary': link.active, 'text-white': link.active, 'font-bold': link.active, 'opacity-30': !link.url}"
-            >
+                <a
+                    class="flex items-center justify-center min-w-0 py-3 px-5 break-words border-0 shadow-soft-xl bg-clip-border"
+                    v-if="k == 0"
+                    href="#" 
+                    @click.prevent="goTo(link.url)"
+                    :class="{
+                        'bg-[#171818]': true, 
+                        'bg-[#F0A323]': false, 
+                        'text-[black]': false, 
+                    }"
                 >
-            </a>
-            <a
-                class="min-w-0 py-3 px-5 break-words border-0 shadow-soft-xl bg-clip-border"
-                v-else
-                href="#" 
-                @click.prevent="goTo(link.url)"
-                :class="{'bg-secondary': link.active, 'text-white': link.active, 'font-bold': link.active}"
-            >
-                {{ link.label }}
-            </a>
-        </li>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 15.75 3 12m0 0 3.75-3.75M3 12h18" />
+                </svg>
+    
+                </a>
+                <a
+                    class="block min-w-0 py-3 px-5 break-words border-0 shadow-soft-xl bg-clip-border"
+                    v-else-if="k == links.length - 1"
+                    href="#" 
+                    @click.prevent="goTo(link.url)"
+                    :class="{
+                        'bg-[#171818]': false, 
+                        'bg-[#F0A323]': true, 
+                        'text-[black]': true, 
+                    }"
+                >
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
+                </svg>
+                </a>
+                <!-- <a
+                    class="min-w-0 py-3 px-5 break-words border-0 shadow-soft-xl bg-clip-border"
+                    v-else
+                    href="#" 
+                    @click.prevent="goTo(link.url)"
+                    :class="{'bg-secondary': link.active, 'text-white': link.active, 'font-bold': link.active}"
+                >
+                    {{ link.label }}
+                </a> -->
+            </li>
+        </template>
     </ul>
 </template>
 
