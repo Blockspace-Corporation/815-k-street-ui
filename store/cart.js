@@ -28,6 +28,25 @@ export const mutations = {
   },
   setTemporaryCart(state, temporaryCart){
     state.temporary_cart.push(temporaryCart);
+  },
+  removeItemFromCart(state, item) {
+    state.temporary_cart = state.temporary_cart.filter(i => i.product.id !== item.product.id)
+  },
+  incrementQuantity(state, item) {
+    const index = state.temporary_cart.findIndex(i => i.product.id === item.product.id);
+    if (index !== -1) {
+      state.temporary_cart[index].quantity++;
+    }
+  },
+  decrementQuantity(state, item) {
+    const index = state.temporary_cart.findIndex(i => i.product.id === item.product.id)
+    if (index !== -1) {
+      if (state.temporary_cart[index].quantity > 1) {
+        state.temporary_cart[index].quantity--
+      } else {
+        state.temporary_cart = state.temporary_cart.filter(i => i.product.id !== item.product.id)
+      }
+    }
   }
 }
 
@@ -38,6 +57,16 @@ export const actions = {
 
   async storeCartObject(context, data) {
     context.commit('setCart', data)
+  },
+
+  async increaseQty(context, data){
+    context.commit('incrementQuantity', data)
+  },
+  async decreaseQty(context, data){
+    context.commit('decrementQuantity', data)
+  },
+  async removeItem(context, data){
+    context.commit('removeItemFromCart', data)
   },
 
   async fetchList(context, payload = null) {
