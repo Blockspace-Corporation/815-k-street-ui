@@ -16,7 +16,10 @@
                     <input type="text" class="flex-1 text-center w-full" v-model="qty">
                     <button type="button" @click.prevent.stop="qty++">+</button>
                 </div>
-                <Button class="flex-1 w-1/2 text-xs h-10" @click="addToCart">Add to Cart</Button>
+                <!-- <Button class="flex-1 w-1/2 text-xs h-10" @click="addToCart(product, quantity)">Add to Cart</Button> -->
+                 <div class="flex-1 w-1/2 text-xs h-10">
+                  <AddToCart :menu="product" :quantity="qty"/>
+                 </div>
             </div>
         </div>
     </div>
@@ -24,7 +27,9 @@
 
 <script>
 import { mapState, mapActions } from 'vuex'
+// import AddToCartMixin from '../AddToCartMixin.js';
 export default {
+    // mixins: [addToCartMixin],
     props: {
         images: {
             default: [],
@@ -48,11 +53,11 @@ export default {
         },
         slug: {
             default: '',
-            type: String
+            type:  [String, Number]
         },
         product: {
-            default: '',
-            type: String
+          default: () => ({}),
+          type: Object
         }
     },
     data() {
