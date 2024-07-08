@@ -140,7 +140,9 @@
         <div v-else>
           <h5><a style="color: red;cursor: pointer;" @click="orderAsGuest">Order as Guest</a> | Sign In</h5>
           <div class="w-full">
-            <div class="w-full">
+            <br>
+            <FormsLoginForm class=""/>
+          <!-- <div class="w-full">
               <div class="mb-4">
                 <label class="block text-sm font-bold mb-2" for="email">Email</label>
                 <input class="shadow appearance-none border rounded w-full py-2 px-3 text-white-700  leading-tight focus:outline-none focus:shadow-outline" id="email" type="email" v-model="login.email">
@@ -149,12 +151,11 @@
                 <label class="block text-sm font-bold mb-2" for="phone">Password</label>
                 <input class="shadow appearance-none border rounded w-full py-2 px-3 text-white-700  leading-tight focus:outline-none focus:shadow-outline" id="phone" type="text" v-model="login.password">
               </div>
-            </div>
+            </div> -->
           </div>
-          <div class="flex justify-between mt-4">
+          <!-- <div class="flex justify-between mt-4">
             <button class="w-full bg-red-700 hover:bg-red-400 text-white font-bold py-2 px-4 rounded" type="submit">SUBMIT</button>
-            <!-- <button class="w-full bg-[#F4B618] hover:bg-yellow-500 text-white font-bold py-2 px-4 ">CREATE ACCOUNT</button> -->
-          </div>
+          </div> -->
         </div>
       </form>
 

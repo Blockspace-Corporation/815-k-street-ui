@@ -1,9 +1,11 @@
 <template>
   <div class="flex gap-1 items-center justify-end">
-    <a href="#" @click.prevent="$router.push('/cart')">
-      <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- <a href="#" @click.prevent="$router.push('/cart')" > -->
+    <a @click="popUpCart">
+      <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" >
         <path d="M13.4375 14.5H15.1953C16.0547 14.5 16.8359 15.0078 17.1875 15.75H33.2422C34.2578 15.75 35 16.7266 34.7266 17.7422L33.125 23.6797C32.8125 24.9297 31.6797 25.75 30.4297 25.75H19.1406L19.375 26.8828C19.4531 27.3125 19.8438 27.625 20.2734 27.625H31.5625C32.0703 27.625 32.5 28.0547 32.5 28.5625C32.5 29.1094 32.0703 29.5 31.5625 29.5H20.2734C18.9453 29.5 17.7734 28.5625 17.5391 27.2344L15.5078 16.6484C15.4688 16.4922 15.3516 16.375 15.1953 16.375H13.4375C12.8906 16.375 12.5 15.9844 12.5 15.4375C12.5 14.9297 12.8906 14.5 13.4375 14.5ZM17.6172 17.625L18.7891 23.875H30.4297C30.8594 23.875 31.2109 23.6016 31.3281 23.2109L32.8125 17.625H17.6172ZM19.375 34.5C18.6719 34.5 18.0859 34.1484 17.7344 33.5625C17.3828 33.0156 17.3828 32.2734 17.7344 31.6875C18.0859 31.1406 18.6719 30.75 19.375 30.75C20.0391 30.75 20.625 31.1406 20.9766 31.6875C21.3281 32.2734 21.3281 33.0156 20.9766 33.5625C20.625 34.1484 20.0391 34.5 19.375 34.5ZM32.5 32.625C32.5 33.3281 32.1094 33.9141 31.5625 34.2656C30.9766 34.6172 30.2344 34.6172 29.6875 34.2656C29.1016 33.9141 28.75 33.3281 28.75 32.625C28.75 31.9609 29.1016 31.375 29.6875 31.0234C30.2344 30.6719 30.9766 30.6719 31.5625 31.0234C32.1094 31.375 32.5 31.9609 32.5 32.625Z" fill="white"/>
       </svg>
+        <SectionsCart v-if="showCart" />
     </a>
     <a v-if="!user" href="#" @click.prevent="$router.push('/login')">
         <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -19,12 +21,17 @@
         <!-- <img class="inline-block h-8 w-8 rounded-full ring-2 ring-white" src="https://via.placeholder.com/35" alt="" /> -->
       <ul v-show="isDropdownOpen" class="absolute mt-4 mr-12 shadow-lg rounded-md text-gray-700 w-60 right-1">
         <li>
+          <a @click.prevent="$router.push('/cart')"  class="w-full flex inline-flex items-center px-4 py-2 hover:bg-red-600 text-left">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
+            </svg>&nbsp;
+            <label>Go to Cart</label>
+          </a>
           <a @click="handleLogout" class="w-full flex inline-flex items-center px-4 py-2 hover:bg-red-600 text-left">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
               <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0 0 13.5 3h-6a2.25 2.25 0 0 0-2.25 2.25v13.5A2.25 2.25 0 0 0 7.5 21h6a2.25 2.25 0 0 0 2.25-2.25V15M12 9l-3 3m0 0 3 3m-3-3h12.75" />
             </svg>&nbsp;
             <label>Sign Out</label>
-
           </a>
         </li>
       </ul>
@@ -37,6 +44,7 @@ import { mapState } from 'vuex'
 export default {
   data() {
     return {
+      showCart:false,
       isDropdownOpen: false,
       isSignin:true
     };
@@ -64,7 +72,17 @@ export default {
         } catch (error) {
             console.error('Logout error:', error);
         }
+    },
+    popUpCart(){
+      this.showCart = this.showCart == false ?  true : false;
     }
+  },
+  mounted() {
+    document.addEventListener('click', (e) => {
+      if (!this.$el.contains(e.target)) {
+        this.showCart = false
+      }
+    })
   }
 };
 </script>
