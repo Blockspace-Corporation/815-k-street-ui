@@ -2,7 +2,7 @@
     <div class="relative bg-[#0A0D10]">
         <div class="container mx-auto px-4 py-12">
             <div class="flex-1 flex flex-col md:flex-row items-start gap-8 md:gap-16">
-                <img src="~/static/logo-greyscale.webp" class="grayscale h-[83px]">
+                <img src="~/static/logo-greyscale.webp" class="h-[83px]" style="filter: grayscale(1)">
                 <div class="flex md:flex-col gap-4 items-center">
                     <a href="#">
                         <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
