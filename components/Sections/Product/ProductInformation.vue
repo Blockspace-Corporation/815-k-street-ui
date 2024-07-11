@@ -12,7 +12,7 @@
                 <div class="flex gap-2 items-center w-60">
                     <span class="flex-1">Quantity</span>
                     <div class="bg-[#E4E4E4] flex gap-2 px-4 py-1 rounded">
-                        <button @click="quantity--">-</button>
+                        <button @click="quantity >= 1 ? quantity-- : 0">-</button>
                         <input type="text" v-model="quantity" class="bg-[#E4E4E4] text-center flex-1 w-16">
                         <button @click="quantity++">+</button>
                     </div>

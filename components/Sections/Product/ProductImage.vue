@@ -1,5 +1,22 @@
 <template>
-    <div v-if="data && data.images && data.images.length">
+  <div>
+        <no-ssr>
+        </no-ssr>
+
+            <carousel class="w-full" :items="1">
+                <img
+                    src="../../../static/images/collection-1.png"
+                    class="bg-[#F9F9F9] rounded-xl p-6"
+                >
+            </carousel>
+            <carousel class="w-full" :items="4">
+                <img
+                    src="../../../static/images/collection-2.png"
+                    class="bg-[#F9F9F9] rounded-xl mt-4 p-2"
+                >
+            </carousel>
+    </div>
+    <!-- <div v-if="data && data.images && data.images.length">
         <no-ssr>
             <carousel class="w-full" :items="1">
                 <img
@@ -18,7 +35,7 @@
                 >
             </carousel>
         </no-ssr>
-    </div>
+    </div> -->
 </template>
 
 <script>

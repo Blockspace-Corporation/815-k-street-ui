@@ -73,9 +73,9 @@ export default {
           maxAge: 259200,
         },
         endpoints: {
-          login: { url: `${api_url}/customer/login`, method: 'post', propertyName: 'token' },
+          login: { url: `${api_url}/login`, method: 'post', propertyName: 'token' },
           logout: { url: `${api_url}/logout`, method: 'post' },
-          user: { url: `${api_url}/customer/self`, method: 'get', propertyName: false },
+          user: { url: `${api_url}/self`, method: 'get', propertyName: false },
         },
         tokenType: 'Bearer',
         user: {

@@ -15,6 +15,7 @@
                     :price="product.price"
                     :summary="product.summary"
                     :slug="product.id"
+                    :product="product"
                     :combinations="product?.combinations"
                 />
             </div>
