@@ -16,6 +16,7 @@
                     :summary="product.summary"
                     :slug="product.id"
                     :product="product"
+                    :combinations="product?.combinations"
                 />
             </div>
             <div class="flex justify-between items-center mt-20">
