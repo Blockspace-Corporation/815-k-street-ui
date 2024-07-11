@@ -227,7 +227,7 @@ export default {
   },
   methods: {
     ...mapActions({
-      set: 'customer/storeCustomerObject',
+      set: 'storeCustomerObject',
     }),
     async submitOrder() {
       try{
