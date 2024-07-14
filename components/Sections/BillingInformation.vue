@@ -142,28 +142,20 @@
           <div class="w-full">
             <br>
             <FormsLoginForm class=""/>
-          <!-- <div class="w-full">
-              <div class="mb-4">
-                <label class="block text-sm font-bold mb-2" for="email">Email</label>
-                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-white-700  leading-tight focus:outline-none focus:shadow-outline" id="email" type="email" v-model="login.email">
-              </div>
-              <div class="mb-4">
-                <label class="block text-sm font-bold mb-2" for="phone">Password</label>
-                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-white-700  leading-tight focus:outline-none focus:shadow-outline" id="phone" type="text" v-model="login.password">
-              </div>
-            </div> -->
           </div>
-          <!-- <div class="flex justify-between mt-4">
-            <button class="w-full bg-red-700 hover:bg-red-400 text-white font-bold py-2 px-4 rounded" type="submit">SUBMIT</button>
-          </div> -->
         </div>
       </form>
+
+      <div>
+        <!-- <button class="w-full bg-red-700 hover:bg-red-400 text-white font-bold py-2 px-4 rounded" @click="prevTick">Previous</button> -->
+        <button class="w-full bg-[#F4B618] hover:bg-yellow-500 text-white font-bold py-2 px-4 " @click="nextTick">Next</button>
+      </div>
 
   </div>
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex'
+import { mapState, mapActions,mapGetters } from 'vuex'
 export default {
   data() {
     const currentYear = new Date().getFullYear();
@@ -192,15 +184,14 @@ export default {
       years: Array.from({ length: 100 }, (_, i) => currentYear - i),
       months: Array.from({ length: 12 }, (_, i) => i + 1),
       days: Array.from({ length: 31 }, (_, i) => i + 1),
-      login:{
-        email:'',
-        password:''
-      }
     }
   },
   computed: {
     ...mapState('auth', {
       user: state => state.user
+    }),
+    ...mapGetters({
+        temporary_cart: 'cart/CART',
     }),
     name() {
       let _name='';
@@ -229,6 +220,12 @@ export default {
     ...mapActions({
       set: 'customer/storeCustomerObject',
     }),
+    async prevTick(){
+      this.$emit('next-step', 1);
+    },
+    async nextTick(){
+      this.$emit('next-step', 2);
+    },
     async submitOrder() {
       try{
         await this.continue_as_guest();
@@ -278,13 +275,31 @@ export default {
           let response = await this.$axios.post('/guest', this.billing);
           if (response.status == 201) {
             await this.set(response.data);
+            this.addToCart(response.data.id);
           }
           this.$toast.success("Guest Customer created successfully")
         // this.$router.push('/checkout')
       } catch (error) {
         this.$toast.error("Error during adding guest customer:", error)
       }
-    }
+    },
+    async addToCart(customerId) {
+      console.log('Add to cart function');
+      try {
+        this.temporary_cart.forEach(item => {
+          item.customer_id = customerId;
+        });
+        console.log(this.temporary_cart)
+        let response = await this.$axios.post('/cart/bulk', this.temporary_cart);
+        if (response.status == 201) {
+          this.$toast.success("Items added to cart!");
+        } else {
+          this.$toast.error("Add to cart failed!");
+        }
+      } catch (error) {
+        this.$toast.error("Add to cart failed! " + error.message);
+      }
+    },
   }
 }
 </script>

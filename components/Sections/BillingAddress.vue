@@ -83,6 +83,11 @@
           <button class="w-full bg-red-600 hover:bg-red-400 text-white font-bold py-2 px-4 rounded" @click="submitOrder">CONTINUE</button>
         </div>
       </div>
+
+      <div>
+        <button class="w-full bg-red-700 hover:bg-red-400 text-white font-bold py-2 px-4 rounded" @click="prevTick">Previous</button>
+        <button class="w-full bg-[#F4B618] hover:bg-yellow-500 text-white font-bold py-2 px-4 " @click="nextTick">Next</button>
+      </div>
   </div>
 </template>
 
@@ -109,6 +114,7 @@ export default {
 
   async fetch() {
     let customer_id = this.user ? this.user.customer.id : this.customer ? this.customer.id : 0;
+    console.log('Cutomer ID: ', customer_id)
     let url = this.user ? `/address` : `/guest/address`;
     try{
       const response = await this.$axios.get(url,{
@@ -131,13 +137,19 @@ export default {
     })
   },
   methods: {
+    async prevTick(){
+      this.$emit('next-step', 1);
+    },
+    async nextTick(){
+      this.$emit('next-step', 3);
+    },
     async submitOrder() {
       try{
         if(this.billing && Object.values(this.billing).every(val => val !== null && val !== undefined)){
           this.billing.customer_id = this.user ? this.user.customer.id : this.customer ? this.customer.id : 0;
           let response = await this.$axios.post('/guest/address', this.billing);
           if (response.status == 201) {
-            await this.set(this.billing);
+            // await this.set(this.billing);
             this.$toast.success("Guest Customer Address created successfully")
           }else{
             this.$toast.error("Error during adding guest customer address")
@@ -146,7 +158,7 @@ export default {
           this.$toast.info("Please fill in all the required fields")
         }
       }catch{
-        this.$toast.error("Error during adding guest customer address:", error)
+        this.$toast.error("Error during adding guest customer address:")
       }finally{
         this.$emit('next-step', 3);
       }

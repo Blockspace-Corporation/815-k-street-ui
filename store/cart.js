@@ -6,16 +6,16 @@ export const state = () => ({
 
 export const getters = {
   DATA(state) {
-      return state.data.data
+      return state.data.data;
   },
   SINGLE(state) {
-      return state.single
+      return state.single;
   },
   total(state) {
-      return state.data.total
+      return state.data.total;
   },
   CART(state){
-    return state.temporary_cart
+    return state.temporary_cart;
   }
 }
 
@@ -27,24 +27,34 @@ export const mutations = {
     state.single = customerData;
   },
   setTemporaryCart(state, temporaryCart){
-    state.temporary_cart.push(temporaryCart);
+    const existingItem = state.temporary_cart.find(item => {
+      return item.product.id === temporaryCart.product.id && item.product_combination_id === temporaryCart.product_combination_id;
+    });
+
+    if (existingItem) {
+      existingItem.quantity += temporaryCart.quantity;
+    } else {
+      state.temporary_cart.push(temporaryCart);
+    }
   },
   removeItemFromCart(state, item) {
-    state.temporary_cart = state.temporary_cart.filter(i => i.product.id !== item.product.id)
+    state.temporary_cart = state.temporary_cart.filter(i =>
+      !(i.product.id === item.product.id && i.product_combination_id === item.product_combination_id)
+     )
   },
   incrementQuantity(state, item) {
-    const index = state.temporary_cart.findIndex(i => i.product.id === item.product.id);
+    const index = state.temporary_cart.findIndex(i => i.id === item.id);
     if (index !== -1) {
       state.temporary_cart[index].quantity++;
     }
   },
   decrementQuantity(state, item) {
-    const index = state.temporary_cart.findIndex(i => i.product.id === item.product.id)
+    const index = state.temporary_cart.findIndex(i => i.id === item.id)
     if (index !== -1) {
       if (state.temporary_cart[index].quantity > 1) {
         state.temporary_cart[index].quantity--
       } else {
-        state.temporary_cart = state.temporary_cart.filter(i => i.product.id !== item.product.id)
+        state.temporary_cart = state.temporary_cart.filter(i => i.id !== item.id)
       }
     }
   }
