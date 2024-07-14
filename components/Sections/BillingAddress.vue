@@ -84,10 +84,10 @@
         </div>
       </div>
 
-      <div>
+      <!-- <div>
         <button class="w-full bg-red-700 hover:bg-red-400 text-white font-bold py-2 px-4 rounded" @click="prevTick">Previous</button>
         <button class="w-full bg-[#F4B618] hover:bg-yellow-500 text-white font-bold py-2 px-4 " @click="nextTick">Next</button>
-      </div>
+      </div> -->
   </div>
 </template>
 

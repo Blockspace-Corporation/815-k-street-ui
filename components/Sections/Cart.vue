@@ -218,7 +218,7 @@ export default {
   },
   methods: {
     ...mapActions({
-      set: 'order_summary/storeOrderSummaryObject',
+      set: 'order/storeOrderSummaryObject',
       increaseQty: 'cart/increaseQty',
       decreaseQty: 'cart/decreaseQty',
       removeItem: 'cart/removeItem',
