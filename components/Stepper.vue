@@ -1,7 +1,7 @@
 <template>
   <div class="md:mt-0">
     <h1 class="text-3xl font-bold">Checkout</h1>
-    <div class="grid grid-cols-3 gap-1 grid-auto-flow">
+    <div class="grid grid-cols-4 gap-1 grid-auto-flow">
       <div class="p-4" :style="{ backgroundColor: first_BackgroundColor }">
         <span class="flex items-center">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6"  style="font-weight: bold;">
@@ -22,10 +22,19 @@
       <div class="p-4" :style="{ backgroundColor: third_BackgroundColor }">
         <span class="flex items-center">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-            <path v-if="currentStep == 3" stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+            <path v-if="currentStep >= 3" stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
             <path v-else stroke-linecap="round" stroke-linejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
           </svg> &nbsp;
           Payment
+        </span>
+      </div>
+      <div class="p-4" :style="{ backgroundColor: forth_BackgroundColor }">
+        <span class="flex items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+            <path v-if="currentStep == 4" stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+            <path v-else stroke-linecap="round" stroke-linejoin="round" d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+          </svg> &nbsp;
+          Order Summary Receipt
         </span>
       </div>
     </div>
@@ -75,11 +84,23 @@
             <div class="border-b border-gray-900/10 pb-12">
               <div class="grid grid-cols-1 md:grid-cols-3 gap-1 grid-auto-flow">
                 <div class="p-4  col-span-2">
-                  <SectionsPayment />
+                  <SectionsPayment @next-step="nextStep" @prev-step="prevStep"/>
                 </div>
                 <div class="p-4">
                   <SectionsOrderSummary :params="user"/>
                 </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="px-4 py-5 sm:p-6" v-if="currentStep === 4" >
+        <div class="flex space-x-4">
+          <div class="flex-1">
+            <div class="border-b border-gray-900/10 pb-12">
+              <div>
+                <p class="text-3xl">Order Summary Receipt</p>
               </div>
             </div>
 
@@ -117,14 +138,17 @@ export default {
       return this.currentStep >= 2 ? '#C00A27' : '#F4B618';
     },
     third_BackgroundColor() {
-      return this.currentStep == 3 ? '#C00A27' : '#F4B618';
+      return this.currentStep >= 3 ? '#C00A27' : '#F4B618';
+    },
+    forth_BackgroundColor() {
+      return this.currentStep == 4 ? '#C00A27' : '#F4B618';
     }
   },
   methods: {
     goToStep(step) {
       if (step < this.currentStep) {
         this.currentStep = step
-      } else if (step > this.currentStep && step <= 3) {
+      } else if (step > this.currentStep && step <= 4) {
         this.currentStep = step
       }
     },

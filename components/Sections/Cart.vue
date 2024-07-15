@@ -9,7 +9,7 @@
             <div class="flex h-full flex-col overflow-y-scroll bg-black shadow-xl">
               <div class="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
                 <div class="flex items-start justify-between">
-                  <h2 class="text-lg font-medium text-gray-900">Shopping cart</h2>
+                  <h2 class="text-lg font-medium text-gray-900">Meal in cart</h2>
                   <div class="ml-3 flex h-7 items-center">
                     <button type="button" class="relative -m-2 p-2 text-gray-400 hover:text-gray-500" @click="open = false">
                       <span class="absolute -inset-0.5" />
@@ -20,13 +20,13 @@
 
                 <div class="mt-8">
                   <div class="flow-root">
-                    <ul role="list" class="-my-6 divide-y divide-gray-200">
+                    <ul role="list" class="-my-6 divide-y divide-gray-200 menu-item rounded">
                       <li v-for="(item, index) in carts" :key="index" class="mb-4">
                         <br>
                         <div class="grid grid-cols-5 gap-4">
                           <div>
-                            <div class="h-16 w-16 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
-                              <div v-for="image in item.product.images" :key="image.id">
+                            <div class="h-16 w-16 flex-shrink-0 overflow-hidden rounded-md border border-gray-200 ml-1">
+                              <div v-if="item.product && item.product.images" v-for="image in item.product.images" :key="image.id">
                                 <img :src=" image_dir + image.filename" alt="Product image"  class="h-full w-full object-cover object-center">
                               </div>
                             </div>
@@ -40,7 +40,8 @@
                               </div>
                               <p class="mt-1 text-sm text-gray-500">{{ item.product.summary }}</p>
                               <br>
-                              <p class="ml-1">PHP&nbsp;{{ item.product.price }}</p>
+                              <!-- <p class="ml-1">PHP&nbsp;{{ item.combination.price }}</p> -->
+                              <p class="ml-1 text-[#F0A323]">PHP {{ getPrice(item) }}</p>
                             </div>
                           </div>
                           <div>
@@ -104,7 +105,7 @@
                 </div>
                 <p class="mt-0.5 text-sm text-gray-500">Shipping and taxes calculated at checkout.</p>
                 <div class="mt-6">
-                  <a @click.stop="checkout" class="flex items-center justify-center rounded-md border border-transparent bg-red-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-red-900">Checkout</a>
+                  <a @click.stop="checkout" class="flex items-center justify-center rounded-md border border-transparent bg-red-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-red-900">Place Order</a>
                 </div>
                 <div class="mt-6 flex justify-center text-center text-sm text-gray-500">
                   <p>
@@ -155,17 +156,18 @@ export default {
         this.carts = response.data.data[0].items
         console.log(response.data.data[0].items)
 
-        const images = []
+        const item_images = []
         this.carts.forEach(item => {
           item.product.images.forEach(image => {
-            images.push(image.filename)
+            item_images.push(image.filename)
           })
         })
+        this.images = item_images
       }
     }else{
       this.carts = this.temporary_cart
     }
-    console.log(this.carts)
+    // console.log(this.carts)
   },
   computed: {
     ...mapState('auth', {
@@ -175,9 +177,19 @@ export default {
         data: 'cart/DATA',
         temporary_cart: 'cart/CART',
     }),
+    getPrice() {
+      return (item) => {
+        return item.product_combination_id  ? item.product_combination.price.toFixed(2) : item.product.price.toFixed(2);
+      }
+    },
     subtotal() {
       return this.carts && this.carts.length > 0
-        ? parseFloat(this.carts.reduce((acc, item) => acc + item.product.price * item.quantity, 0)).toFixed(2)
+      // ? parseFloat(this.carts.reduce((acc, item) => acc + item.product.price * item.quantity, 0)).toFixed(2)
+        ? parseFloat(this.carts.reduce((acc, item) => {
+          const price = item.product_combination_id != 0 ?
+            item.product_combination.price :  item.product.price ;
+          return acc + price * item.quantity;
+        }, 0)).toFixed(2)
         : 0;
     },
     tax() {
@@ -206,12 +218,25 @@ export default {
   },
   methods: {
     ...mapActions({
-      set: 'order_summary/storeOrderSummaryObject',
+      set: 'order/storeOrderSummaryObject',
       increaseQty: 'cart/increaseQty',
       decreaseQty: 'cart/decreaseQty',
       removeItem: 'cart/removeItem',
     }),
     async removeItemFromCart(item) {
+      if(this.user){
+        try {
+          let response = await this.$axios.delete(`/cart/${item.id}`);
+          if (response.status == 201) {
+            await this.set(response.data);
+            this.$toast.success("Item remove successfull!")
+            this.carts = this.carts.filter(cartItem => cartItem.id !== item.id);
+          }
+        } catch (error) {
+          console.log(error);
+          this.$toast.error("Removing item failed! ")
+        }
+      }
       await this.removeItem(item);
       this.carts = this.temporary_cart
     },
@@ -229,14 +254,24 @@ export default {
       this.form.discount = this.discount;
       this.form.tax = this.tax;
       this.form.total = this.total;
-      try {
-        await this.set(this.form);
-        console.log("Checkout clicked!")
-        this.$router.push('/checkout')
-      } catch (error) {
-        console.error("Error during checkout:", error)
+      if(this.subtotal != 0){
+        try {
+          await this.set(this.form);
+          console.log("Checkout clicked!")
+          this.$router.push('/order-summary')
+        } catch (error) {
+          console.error("Error during checkout:", error)
+        }
+      }else{
+        this.$toast.error("There are currently no items in your cart.")
       }
     }
   }
 }
 </script>
+
+<style lang="css" scoped>
+.menu-item {
+    background-image: linear-gradient(to left, #15191F00, #15191F, #15191F);
+}
+</style>
