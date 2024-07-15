@@ -57,7 +57,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-        data: 'order_summary/SINGLE',
+        data: 'order/SUMMARY',
         customer_data: 'customer/SINGLE',
     }),
     name() {

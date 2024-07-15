@@ -15,25 +15,30 @@
 import { mapState, mapActions } from 'vuex'
 export default {
   props: {
-      quantity: {
-          default: '',
-          type: Number
-      },
-      menu: {
-        default: () => ({}),
-        type: Object
-      }
+    quantity: {
+      default: '',
+      type: Number
+    },
+    menu: {
+      default: () => ({}),
+      type: Object
+    },
+    combinations: {
+      default: () => ({}),
+      type: Object
+    }
   },
   data() {
-      return {
-          cart:{
-            cart_id:0,
-            product_id:0,
-            customer_id:0,
-            quantity:0
-          },
-          carts:[]
-      }
+    return {
+      cart:{
+        cart_id:0,
+        product_id:0,
+        product_combination_id:0,
+        customer_id:0,
+        quantity:0
+      },
+      carts:[]
+    }
   },
   computed: {
     ...mapState('auth', {
@@ -45,35 +50,39 @@ export default {
       set: 'cart/storeTemporaryCartObject',
     }),
     async addToCart() {
-      try{
-        const productJson = { ...this.menu };
+      const productJson = { ...this.menu };
+      let combination = null;
+      let combination_id = 0;
+      if (this.combinations) {
+        combination = { ...this.combinations };
+        combination_id = combination.id
+      }
 
-        if(this.user){
-          console.log('add to cart Clicked')
-          try {
-            this.cart.product_id = productJson.id;
-            this.cart.customer_id = this.user.customer.id;
-            this.cart.quantity = this.quantity;
-            this.cart.cart_id = 0;
+      if(this.user){
+        console.log('add to cart Clicked :',  combination ? combination.id : 0)
+        try {
+          this.cart.product_id = productJson.id;
+          this.cart.customer_id = this.user.customer.id;
+          this.cart.quantity = this.quantity;
+          this.cart.cart_id = 0;
+          this.cart.product_combination_id = combination ? combination.id : 0;
 
-            console.log(this.cart)
+          console.log(this.cart)
 
-            let response = await this.$axios.post('/cart', this.cart);
-            if (response.status == 201) {
-              await this.set(response.data);
-              this.$toast.success("Customer registration successfull!")
-            }
-          } catch (error) {
-            console.log(error);
-            this.$toast.error("Add to cart failed! ")
+          let response = await this.$axios.post('/cart', this.cart);
+          if (response.status == 201) {
+            await this.set(response.data);
+            this.$toast.success("Customer registration successfull!")
           }
-        }else{
-          this.carts = { quantity: this.quantity, product: productJson }
-          this.set(this.carts);
-          this.$toast.success('Item added to cart!')
+        } catch (error) {
+          console.log(error);
+          this.$toast.error("Add to cart failed! ")
         }
-      }catch{
-        this.$toast.success('Add to cart!')
+      }else{
+        this.carts = { quantity: this.quantity, product: productJson, product_combination_id:combination_id, product_combination:combination }
+        console.log(this.carts)
+        this.set(this.carts);
+        this.$toast.success('Item added to cart!')
       }
     },
   },

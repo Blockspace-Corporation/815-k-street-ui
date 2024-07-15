@@ -1,5 +1,6 @@
 export const state = () => ({
   data: [],
+  order_summary:[],
   single: []
 })
 
@@ -10,10 +11,13 @@ export const getters = {
   SINGLE(state) {
       return state.single
   },
+  SUMMARY(state){
+    return state.order_summary
+  }
 }
 export const mutations = {
   setOrderSummary(state, customerData) {
-    state.single = customerData;
+    state.order_summary = customerData;
   },
 }
 
