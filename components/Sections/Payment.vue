@@ -11,7 +11,8 @@
             </label>
           </div>
           <div v-if="item.name==='GCASH'" class="w-full  p-4">
-            <form v-show="selectedPayment === 1"  @submit.prevent="submitOrder">
+            <FormsPayTypeEwallet v-show="selectedPayment === 1"/>
+            <!-- <form v-show="selectedPayment === 1"  @submit.prevent="submitOrder">
               <div class="w-full">
                 <h2 class="text-lg font-bold">09000000000</h2>
                 <h2 class="text-lg font-bold">Name</h2>
@@ -21,10 +22,11 @@
                   <input class="shadow appearance-none border rounded w-full py-2 px-3 text-white-700  leading-tight focus:outline-none focus:shadow-outline" id="card-number" type="text" v-model="payment.cardNumber">
                 </div>
               </div>
-            </form>
+            </form> -->
           </div>
           <div v-if="item.name==='CREDIT/DEBIT CARD'" class="w-full  p-4">
-            <form v-show="selectedPayment === 2"  @submit.prevent="submitOrder">
+            <FormsPayTypeCard v-show="selectedPayment === 2"/>
+            <!-- <form v-show="selectedPayment === 2"  @submit.prevent="submitOrder">
               <div class="w-full">
                 <h2 class="text-lg font-bold">Payment Information</h2>
                 <div class="mb-4">
@@ -44,7 +46,7 @@
                   </div>
                 </div>
               </div>
-            </form>
+            </form> -->
           </div>
         </div>
       </li>
@@ -58,10 +60,10 @@
       </div>
     </div>
 
-    <!-- <div>
+    <div>
         <button class="w-full bg-red-700 hover:bg-red-400 text-white font-bold py-2 px-4 rounded" @click="prevTick">Previous</button>
         <button class="w-full bg-[#F4B618] hover:bg-yellow-500 text-white font-bold py-2 px-4 " @click="submitOrder">Next</button>
-      </div> -->
+      </div>
   </div>
 </template>
 
@@ -105,12 +107,12 @@ export default {
   },
   methods: {
     async prevTick(){
-      this.$emit('next-step', 2);
+      this.$emit('next-step', 1);
     },
     submitOrder() {
       // Implement order submission logic here
       console.log("Order submitted!")
-      this.$emit('next-step', 4);
+      this.$emit('next-step', 3);
     }
   }
 }

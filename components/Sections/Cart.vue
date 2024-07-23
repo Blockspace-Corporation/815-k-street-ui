@@ -84,13 +84,13 @@
                         <div align="right">
                           <p class="text-lg font-bold">{{ subtotal }}&nbsp;PHP</p>
                         </div>
-
+<!--
                         <div>
                           <p class="text-lg  border-b border-gray-900/10 pb-12">Tax (12%):</p>
                         </div>
                         <div align="right">
                           <p class="text-lg font-bold border-b border-gray-900/10 pb-12">{{ tax }}&nbsp;PHP</p>
-                        </div>
+                        </div> -->
 
                         <div>
                           <p class="text-lg ">Total:</p>
@@ -172,6 +172,9 @@ export default {
   computed: {
     ...mapState('auth', {
       user: state => state.user
+    }),
+    ...mapState('customer', {
+      customer: state => state.single
     }),
     ...mapGetters({
         data: 'cart/DATA',
@@ -258,7 +261,13 @@ export default {
         try {
           await this.set(this.form);
           console.log("Checkout clicked!")
-          this.$router.push('/order-summary')
+          if ((this.user && Object.keys(this.user).length > 0) || (this.customer && Object.keys(this.customer).length > 0)) {
+            this.$router.push('/order-summary')
+            console.log("order-summary clicked!")
+          } else {
+            this.$router.push('/customer-information')
+            console.log("customer-information clicked!")
+          }
         } catch (error) {
           console.error("Error during checkout:", error)
         }

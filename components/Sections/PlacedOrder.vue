@@ -126,6 +126,19 @@ export default {
         tax:0,
         total:0
       },
+      order:{
+        reference_number:'',
+        customer_id: 0,
+        customer_address_id: 0,
+        gross_price: 0,
+        discount: 0,
+        shipping_fee: 0,
+        total_price: 0,
+        discount_reason: '',
+        payment_type: '',
+        order_status_id: '',
+        order_date: new Date().toJSON().slice(0,10).replace(/-/g,'/'),
+      },
       carts: [],
     }
   },
@@ -207,13 +220,15 @@ export default {
   methods: {
     ...mapActions({
       set: 'order/storeOrderSummaryObject',
+      add: 'order/add',
       increaseQty: 'cart/increaseQty',
       decreaseQty: 'cart/decreaseQty',
       removeItem: 'cart/removeItem',
     }),
     async removeItemFromCart(item) {
-      await this.removeItem(item);
-      this.carts = this.temporary_cart
+        await this.removeItem(item);
+        this.carts = this.temporary_cart
+        this.$toast.success("Item remove successfull!")
     },
     async incrementQuantity(item) {
       await this.increaseQty(item);
@@ -229,12 +244,20 @@ export default {
       this.form.discount = this.discount;
       this.form.tax = this.tax;
       this.form.total = this.total;
-      try {
-        await this.set(this.form);
-        console.log("Checkout clicked!")
-        this.$router.push('/checkout')
-      } catch (error) {
-        console.error("Error during checkout:", error)
+      if(this.subtotal != 0){
+      // Place Order
+        try {
+          const response = await this.add(this.form);
+          this.$toast.success('Customer added successfully.');
+
+          await this.set(this.form);
+          console.log("Checkout clicked!")
+          this.$router.push('/checkout')
+        } catch (error) {
+          this.$toast.error('Error adding customer. Please try again.');
+        }
+      }else{
+        this.$toast.info('No meal available in cart!');
       }
     }
   }

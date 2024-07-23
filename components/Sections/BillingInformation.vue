@@ -2,31 +2,31 @@
   <div>
       <h2 class="text-lg font-bold">Billing Information</h2>
       <form v-if="guest" @submit.prevent="submitOrder">
-        <h5>Order as Guest | <a style="color: red;cursor: pointer;" @click="signIn">Sign In</a></h5>
+        <h5>Continue as Guest | Already a member,<a style="color: red;cursor: pointer;" @click="signIn"> Sign In.</a></h5>
         <br>
         <div class="w-full">
           <div class="w-full">
             <div class="mb-4">
               <label class="block text-sm font-bold mb-2" for="first_name">First Name</label>
-              <input class="shadow appearance-none border rounded w-full py-2 px-3 text-white-700  leading-tight focus:outline-none focus:shadow-outline"
+              <input class="shadow appearance-none border rounded w-full py-2 px-3 text-grey leading-tight focus:outline-none focus:shadow-outline"
                 id="first_name" type="text" v-model="billing.first_name" required
                 :class="{ 'border border-red-500': !billing.first_name }">
             </div>
             <div class="mb-4">
               <label class="block text-sm font-bold mb-2" for="last_name">Last Name</label>
-              <input class="shadow appearance-none border rounded w-full py-2 px-3 text-white-700  leading-tight focus:outline-none focus:shadow-outline"
+              <input class="shadow appearance-none border rounded w-full py-2 px-3 text-grey leading-tight focus:outline-none focus:shadow-outline"
                 id="namlast_namee" type="text" v-model="billing.last_name" required
                 :class="{ 'border border-red-500': !billing.last_name }">
             </div>
             <div class="mb-4">
               <label class="block text-sm font-bold mb-2" for="email">Email</label>
-              <input class="shadow appearance-none border rounded w-full py-2 px-3 text-white-700  leading-tight focus:outline-none focus:shadow-outline"
+              <input class="shadow appearance-none border rounded w-full py-2 px-3 text-grey leading-tight focus:outline-none focus:shadow-outline"
                 id="email" type="email" v-model="billing.email" required
                 :class="{ 'border border-red-500': !billing.email }">
             </div>
             <div class="mb-4">
               <label class="block text-sm font-bold mb-2" for="phone">Phone</label>
-              <input class="shadow appearance-none border rounded w-full py-2 px-3 text-white-700  leading-tight focus:outline-none focus:shadow-outline"
+              <input class="shadow appearance-none border rounded w-full py-2 px-3 text-grey leading-tight focus:outline-none focus:shadow-outline"
                 id="phone" type="text" v-model="billing.phone" required
                 :class="{ 'border border-red-500': !billing.phone }">
             </div>
@@ -35,48 +35,48 @@
         <div class="flex justify-between mt-4">
           <!-- <button class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded" type="submit">Continue</button> -->
           <button class="w-full bg-[#F4B618] hover:bg-yellow-500 text-white font-bold py-2 px-4 " @click="createAccount">CREATE ACCOUNT</button>
-          <button class="w-full mx-4 bg-red-600 hover:bg-red-400 text-white font-bold py-2 px-4 " type="submit">CONTINUE</button>
+          <button class="w-full bg-red-600 hover:bg-red-400 text-white font-bold py-2 px-4 " type="submit">CONTINUE</button>
         </div>
       </form>
 
       <form v-if="create_account" @submit.prevent="register">
-        <h5><a style="color: red;cursor: pointer;" @click="orderAsGuest">Order as Guest</a> | Sign In</h5>
+        <h5><a style="color: red;cursor: pointer;" @click="orderAsGuest">Continue as Guest</a> | Already a member,<a style="color: red;cursor: pointer;" @click="signIn"> Sign In.</a></h5>
         <br>
         <div class="w-full">
           <div class="w-full">
             <div class="mb-4">
               <label class="block text-sm font-bold mb-2" for="first_name">First Name</label>
-              <input class="shadow appearance-none border rounded w-full py-2 px-3 text-white-700  leading-tight focus:outline-none focus:shadow-outline"
+              <input class="shadow appearance-none border rounded w-full py-2 px-3 text-grey  leading-tight focus:outline-none focus:shadow-outline"
                 id="first_name" type="text" v-model="registration.first_name" required
                 :class="{ 'border border-red-500': !registration.first_name }">
             </div>
             <div class="mb-4">
               <label class="block text-sm font-bold mb-2" for="last_name">Last Name</label>
-              <input class="shadow appearance-none border rounded w-full py-2 px-3 text-white-700  leading-tight focus:outline-none focus:shadow-outline"
+              <input class="shadow appearance-none border rounded w-full py-2 px-3 text-grey  leading-tight focus:outline-none focus:shadow-outline"
                 id="namlast_namee" type="text" v-model="registration.last_name" required
                 :class="{ 'border border-red-500': !registration.last_name }">
             </div>
             <div class="mb-4">
               <label class="block text-sm font-bold mb-2" for="email">Email</label>
-              <input class="shadow appearance-none border rounded w-full py-2 px-3 text-white-700  leading-tight focus:outline-none focus:shadow-outline"
+              <input class="shadow appearance-none border rounded w-full py-2 px-3 text-grey  leading-tight focus:outline-none focus:shadow-outline"
                 id="email" type="email" v-model="registration.email" required
                 :class="{ 'border border-red-500': !registration.email }">
             </div>
             <div class="mb-4">
               <label class="block text-sm font-bold mb-2" for="phone">Phone</label>
-              <input class="shadow appearance-none border rounded w-full py-2 px-3 text-white-700  leading-tight focus:outline-none focus:shadow-outline"
+              <input class="shadow appearance-none border rounded w-full py-2 px-3 text-grey  leading-tight focus:outline-none focus:shadow-outline"
                 id="phone" type="text" v-model="registration.phone" required
                 :class="{ 'border border-red-500': !registration.phone }">
             </div>
             <div class="mb-4">
               <label class="block text-sm font-bold mb-2" for="phone">Password</label>
-              <input class="shadow appearance-none border rounded w-full py-2 px-3 text-white-700  leading-tight focus:outline-none focus:shadow-outline"
+              <input class="shadow appearance-none border rounded w-full py-2 px-3 text-grey  leading-tight focus:outline-none focus:shadow-outline"
                 id="phone" type="text" v-model="registration.password" required
                 :class="{ 'border border-red-500': !registration.password }">
             </div>
             <div class="mb-4">
               <label class="block text-sm font-bold mb-2" for="phone">Confirm Password</label>
-              <input class="shadow appearance-none border rounded w-full py-2 px-3 text-white-700  leading-tight focus:outline-none focus:shadow-outline"
+              <input class="shadow appearance-none border rounded w-full py-2 px-3 text-grey  leading-tight focus:outline-none focus:shadow-outline"
                 id="phone" type="text" v-model="registration.confirmPassword" required
                 :class="{ 'border border-red-500': !registration.confirmPassword }">
             </div>
@@ -84,7 +84,7 @@
               <label class="block text-sm font-bold mb-2" for="phone">Birthday</label>
               <div class="w-full grid grid-cols-3 gap-4">
                 <div>
-                  <select class="shadow appearance-none border rounded w-full py-2 px-3 text-white-700  leading-tight focus:outline-none focus:shadow-outline"
+                  <select class="shadow appearance-none border rounded w-full py-2 px-3 text-grey  leading-tight focus:outline-none focus:shadow-outline"
                   id="year" v-model="registration.birthdayYear" required
                   :class="{ 'border border-red-500': !registration.birthdayYear }">
                     <option value="" disabled selected>Year</option>
@@ -92,7 +92,7 @@
                   </select>
                 </div>
                 <div>
-                  <select class="shadow appearance-none border rounded w-full py-2 px-3 text-white-700  leading-tight focus:outline-none focus:shadow-outline"
+                  <select class="shadow appearance-none border rounded w-full py-2 px-3 text-grey  leading-tight focus:outline-none focus:shadow-outline"
                     id="month" v-model="registration.birthdayMonth" required
                     :class="{ 'border border-red-500': !registration.birthdayMonth }">
                     <option value="" disabled selected>Month</option>
@@ -100,7 +100,7 @@
                   </select>
                 </div>
                 <div>
-                  <select class="shadow appearance-none border rounded w-full py-2 px-3 text-white-700  leading-tight focus:outline-none focus:shadow-outline"
+                  <select class="shadow appearance-none border rounded w-full py-2 px-3 text-grey  leading-tight focus:outline-none focus:shadow-outline"
                     id="day" v-model="registration.birthdayDay" required
                     :class="{ 'border border-red-500': !registration.birthdayDay }">
                     <option value="" disabled selected>Day</option>
@@ -117,7 +117,7 @@
         </div>
       </form>
 
-      <form v-if="sign_in" @submit.prevent="register">
+      <form v-if="sign_in" @submit.prevent="nextTick">
         <div v-if="user">
           <h5><a style="color: red;cursor: pointer;" @click="orderAsGuest">Order as Guest</a></h5>
           <br>
@@ -138,10 +138,21 @@
           </div>
         </div>
         <div v-else>
-          <h5><a style="color: red;cursor: pointer;" @click="orderAsGuest">Order as Guest</a> | Sign In</h5>
+          <h5><a style="color: red;cursor: pointer;" @click="orderAsGuest">Continue as Guest</a> | <a style="color: red;cursor: pointer;" @click="createAccount">Create account</a></h5>
           <div class="w-full">
             <br>
-            <FormsLoginForm class=""/>
+            <!-- <FormsLoginForm/> -->
+            <form class="flex flex-col gap-4" @submit.prevent="login" style="width: 400px;">
+              <div class="mb-4">
+                <label class="block text-sm font-bold mb-2" for="phone">Email</label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-white-700  leading-tight focus:outline-none focus:shadow-outline text-grey" id="email" type="text" v-model="form.email">
+              </div>
+              <div class="mb-4">
+                <label class="block text-sm font-bold mb-2" for="password">Password</label>
+                <input class="shadow appearance-none border rounded w-full py-2 px-3 text-white-700  leading-tight focus:outline-none focus:shadow-outline text-grey" id="password" type="password" v-model="form.password">
+              </div>
+              <Button type="submit">Login</Button>
+          </form>
           </div>
         </div>
       </form>
@@ -162,6 +173,11 @@ export default {
       create_account: false,
       guest:false,
       sign_in:false,
+      form:
+      {
+        email: '',
+        password: '',
+      },
       billing: {
         last_name: '',
         first_name:'',
@@ -251,6 +267,36 @@ export default {
       this.sign_in = true;
       this.guest = false;
       this.create_account = false;
+    },
+    async login() {
+      this.loading = true
+      try {
+          await this.$axios.get(
+              '../../sanctum/csrf-cookie'
+          )
+
+          await this.$auth.loginWith('local', { data: this.form })
+          .then(response  => {
+              this.$toast.success('Login success')
+          })
+          .catch(err => {
+              console.log(err.response)
+              this.$toast.error('Invalid user ID and password')
+          })
+
+      } catch (error) {
+          console.log(error)
+          if(error == 'Failed to execute') {
+          this.$toast.error('Please complete the CAPTCHA challenge.')
+          } else {
+          this.$toast.error('Unable to login with the provided credentials.')
+          }
+      } finally {
+        this.loading = false
+        console.log(this.user.customer.id)
+        await this.addToCart(this.user.customer.id)
+        this.$router.push('/order-summary')
+      }
     },
     async register() {
       console.log("register submitted!")
