@@ -77,6 +77,9 @@ export const actions = {
   },
   async removeItem(context, data){
     context.commit('removeItemFromCart', data)
+    if (data.id && data.id !== 0) {
+      context.dispatch('delete', data)
+    }
   },
 
   async fetchList(context, payload = null) {
@@ -100,4 +103,15 @@ export const actions = {
         context.commit('setCarts', response.data)
     }
   },
+
+  async delete(context, data) {
+    try {
+        let response = await this.$axios.delete(`/cart/${data.id}`);
+        if (response.status == 200) {
+        }
+        return response;
+    } catch (error) {
+        console.log(error)
+    }
+  }
 }

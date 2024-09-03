@@ -16,106 +16,36 @@
             </div>
           </li>
         </ul>
-        <ul v-if="!addresses || addresses.length === 0" >
-          <form @submit.prevent="submitOrder">
-            <div class="w-full">
-              <div class="p-4">
-                <div class="w-full">
-                  <h2 class="text-lg font-bold">Address</h2>
-                  <div class="mb-4">
-                    <label class="block text-sm font-bold mb-2" for="address">Title</label>
-                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-white-700  leading-tight focus:outline-none focus:shadow-outline"
-                      id="title" type="text" v-model="billing.title" required
-                      :class="{ 'border border-red-500': !billing.title }">
-                  </div>
-                  <div class="mb-4">
-                    <label class="block text-sm font-bold mb-2" for="address">Name</label>
-                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-white-700  leading-tight focus:outline-none focus:shadow-outline"
-                      id="name" type="text" v-model="billing.name" required
-                      :class="{ 'border border-red-500': !billing.name }">
-                  </div>
-                  <div class="mb-4">
-                    <label class="block text-sm font-bold mb-2" for="address">Room no. | House no. | Block</label>
-                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-white-700  leading-tight focus:outline-none focus:shadow-outline"
-                      id="address" type="text" v-model="billing.address" required
-                      :class="{ 'border border-red-500': !billing.address }">
-                  </div>
-                  <div class="mb-4">
-                    <label class="block text-sm font-bold mb-2" for="address">Street Address</label>
-                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-white-700  leading-tight focus:outline-none focus:shadow-outline"
-                      id="street_address" type="text" v-model="billing.street_address" required
-                      :class="{ 'border border-red-500': !billing.street_address }">
-                  </div>
-                  <div class="mb-4">
-                    <label class="block text-sm font-bold mb-2" for="city">Company</label>
-                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-white-700  leading-tight focus:outline-none focus:shadow-outline"
-                      id="company" type="text" v-model="billing.company" required
-                      :class="{ 'border border-red-500': !billing.company }">
-                  </div>
-                  <div class="mb-4">
-                    <label class="block text-sm font-bold mb-2" for="city">City</label>
-                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-white-700  leading-tight focus:outline-none focus:shadow-outline"
-                      id="city" type="text" v-model="billing.city" required
-                      :class="{ 'border border-red-500': !billing.city }">
-                  </div>
-                  <div class="mb-4">
-                    <label class="block text-sm font-bold mb-2" for="state">Province or State</label>
-                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-white-700  leading-tight focus:outline-none focus:shadow-outline"
-                      id="state_province" type="text" v-model="billing.state_province" required
-                      :class="{ 'border border-red-500': !billing.state_province }">
-                  </div>
-                  <div class="mb-4">
-                    <label class="block text-sm font-bold mb-2" for="zip">Postal Code</label>
-                    <input class="shadow appearance-none border rounded w-full py-2 px-3 text-white-700  leading-tight focus:outline-none focus:shadow-outline"
-                      id="postal_code" type="text" v-model="billing.postal_code" required
-                      :class="{ 'border border-red-500': !billing.postal_code }">
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- <div class="flex justify-between mt-4">
-              <button class="w-full bg-red-600 hover:bg-red-400 text-white font-bold py-2 px-4 rounded" type="submit">CONTINUE</button>
-            </div> -->
-          </form>
 
-        </ul>
-        <div class="flex justify-between mt-4">
-          <button class="w-full bg-red-600 hover:bg-red-400 text-white font-bold py-2 px-4 rounded" @click="submitOrder">CONTINUE</button>
+        <div>
+          <button v-if="selectedDelivery" class="w-full bg-[#F4B618] hover:bg-yellow-500 text-white font-bold py-2 px-4 " @click="nextTick">Next</button>
+        </div>
+        <button class="w-full text-grey font-bold py-2 px-4 rounded" @click="open_form = !open_form">{{ open_form ? 'Close Form' : 'Add New Address' }}</button>
+        <div  v-if="open_form">
+          <FormsAddressForm @form-submitted="fetchGuestAddressList"/>
+        </div>
+        <div>
+          <button class="w-full bg-[#F4B618] hover:bg-yellow-500 text-white font-bold py-2 px-4 " @click="nextTick">Next</button>
         </div>
       </div>
-
-      <!-- <div>
-        <button class="w-full bg-red-700 hover:bg-red-400 text-white font-bold py-2 px-4 rounded" @click="prevTick">Previous</button>
-        <button class="w-full bg-[#F4B618] hover:bg-yellow-500 text-white font-bold py-2 px-4 " @click="nextTick">Next</button>
-      </div> -->
   </div>
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapActions, mapGetters } from 'vuex'
 export default {
   data() {
     return {
       selectedDelivery: null,
+      open_form:false,
       addresses: [],
-      billing: {
-        customer_id:0,
-        title:'',
-        name: '',
-        address: '',
-        street_address:'',
-        company:'',
-        city: '',
-        state_province: '',
-        postal_code: ''
-      },
     }
   },
-
   async fetch() {
     let customer_id = this.user ? this.user.customer.id : this.customer ? this.customer.id : 0;
     console.log('Cutomer ID: ', customer_id)
-    let url = this.user ? `/address` : `/guest/address`;
+    let url = this.user ? `/address` : `/guest/address/list`;
+    console.log('URL: ', url)
     try{
       const response = await this.$axios.get(url,{
         params: {
@@ -123,11 +53,16 @@ export default {
         }
       })
       if (response.status == 200) {
+        console.log('response: ', response.data.addresses)
         this.addresses = response.data.addresses
       }
     }catch{
+      console.log('Error')
     }
   },
+  mounted() {
+      // this.fetchData();
+    },
   computed: {
     ...mapState('auth', {
       user: state => state.user
@@ -137,33 +72,39 @@ export default {
     })
   },
   methods: {
-    async prevTick(){
-      this.$emit('next-step', 1);
-    },
-    async nextTick(){
-      this.$emit('next-step', 3);
-    },
-    async submitOrder() {
+    ...mapGetters({
+        address: 'customer_address/ADDRESS',
+        guest_address: 'customer_address/GUEST_ADDRESS',
+    }),
+    // ...mapActions({
+      //   fetchGuestAddressList:'customer_address/fetchGuestAddressList'
+    // }),
+    // fetchData() {
+    //     this.fetchAddressList(this.customer.id);
+    //     this.fetchGuestAddressList(this.customer.id);
+    // },
+    async fetchGuestAddressList() {
+      let customer_id = this.user ? this.user.customer.id : this.customer ? this.customer.id : 0;
+      console.log('Cutomer ID: ', customer_id)
+      let url = this.user ? `/address` : `/guest/address/list`;
+      console.log('URL: ', url)
       try{
-        if(this.billing && Object.values(this.billing).every(val => val !== null && val !== undefined)){
-          this.billing.customer_id = this.user ? this.user.customer.id : this.customer ? this.customer.id : 0;
-          let response = await this.$axios.post('/guest/address', this.billing);
-          if (response.status == 201) {
-            // await this.set(this.billing);
-            this.$toast.success("Guest Customer Address created successfully")
-          }else{
-            this.$toast.error("Error during adding guest customer address")
+        const response = await this.$axios.get(url,{
+          params: {
+            customer_id,
           }
-        }else{
-          this.$toast.info("Please fill in all the required fields")
+        })
+        if (response.status == 200) {
+          console.log('response: ', response.data.addresses)
+          this.addresses = response.data.addresses
         }
       }catch{
-        this.$toast.error("Error during adding guest customer address:")
-      }finally{
-        this.$emit('next-step', 3);
+        console.log('Error')
       }
-
-    }
+    },
+    async nextTick(){
+      this.$emit('next-step', 2);
+    },
   }
 }
 </script>
